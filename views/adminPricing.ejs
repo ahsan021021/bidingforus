@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<title>Change Info | AutoBids</title>
+
+	<meta property="og:url" content="https://AutoBids.co/" />
+	<meta property="og:type" content="website" />
+	<meta property="og:title" content="AutoBids" />
+	<meta property="og:description" content="AutoBids is a tool which gives you upper hand to other freelancers" />
+	<meta property="og:image" content="https://cdn.bidman.co/images/logo.png" />
+
+	<!-- <link rel="icon" href="https://cdn.bidman.co/images/favicon/favicon-32x32.png" sizes="32x32">
+	<link rel="icon" href="https://cdn.bidman.co/images/favicon/favicon-57x57.png" sizes="57x57">
+	<link rel="icon" href="https://cdn.bidman.co/images/favicon/favicon-76x76.png" sizes="76x76">
+	<link rel="icon" href="https://cdn.bidman.co/images/favicon/favicon-96x96.png" sizes="96x96">
+	<link rel="icon" href="https://cdn.bidman.co/images/favicon/favicon-128x128.png" sizes="128x128">
+	<link rel="icon" href="https://cdn.bidman.co/images/favicon/favicon-192x192.png" sizes="192x192">
+	<link rel="icon" href="https://cdn.bidman.co/images/favicon/favicon-228x228.png" sizes="228x228">
+	<link rel="shortcut icon" sizes="196x196" href="https://cdn.bidman.co/images/favicon/favicon-196x196.png"> -->
+	<link rel="apple-touch-icon" href="https://cdn.bidman.co/images/favicon/favicon-120x120.png" sizes="120x120">
+	<link rel="apple-touch-icon" href="https://cdn.bidman.co/images/favicon/favicon-152x152.png" sizes="152x152">
+	<link rel="apple-touch-icon" href="https://cdn.bidman.co/images/favicon/favicon-180x180.png" sizes="180x180">
+	<meta name="theme-color" content="#012B46">
+	<meta name="msapplication-TileColor" content="#FFFFFF">
+	<meta name="msapplication-TileImage" content="https://cdn.bidman.co/images/favicon/favicon-144x144.png">
+
+	<link href="https://cdn.bidman.co/app_assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet"
+		type="text/css">
+	<link
+		href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+		rel="stylesheet">
+	<link href="https://cdn.bidman.co/app_assets/css/sb-admin-2.min.css?v=11" rel="stylesheet">
+	<link href="https://cdn.bidman.co/app_assets/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+	<style type="text/css">
+		label {
+			font-size: 14px;
+			font-weight: 600;
+			margin-bottom: 3px;
+			color: #555;
+		}
+	</style>
+</head>
+
+<body id="page-top" class="sidebar-toggled">
+	<div id="wrapper">
+
+		<div id="content-wrapper" class="d-flex flex-column">
+			<div id="content">
+
+
+				<nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+					<a class="navbar-brand position-relative" href="/admin/dashboard">
+						<h2>AUTOBIDS</h2>
+					</a>
+				</nav>
+                <div class="setting-content">
+                    <div id="toast-container">
+                        <div class="toast" id="toast-success" role="alert" aria-live="assertive" aria-atomic="true" data-delay="3000" style="display: none;">
+                            <div class="toast-body">
+                                <!-- Toast message will be displayed here -->
+                            </div>
+                        </div>
+                    </div>
+                    <form method="POST" action="/admin/changePricing">
+                        <div class="card shadow">
+                            <div class="card-header py-3 d-flex align-items-center">
+                                <h5 class="h5 m-0 text-primary">Change Info</h5>
+                            </div>
+                            <div class="card-body">
+                                <h6 class="text-primary mb-3">Pricing for India</h6>
+                                <div class="form-row">
+                                    <div class="form-group col-sm-6 col-lg-4">
+                                        <label for="input-indianMonthlyLink">Indian Monthly Link</label>
+                                        <input type="text" class="form-control" id="input-indianMonthlyLink" name="indianMonthlyLink" value="<%= pricing[0]?.indianMonthlyLink ? pricing[0].indianMonthlyLink : '' %>"> 
+                                    </div>
+                                    <div class="form-group col-sm-6 col-lg-4">
+                                        <label for="input-indianMonthlyAmount">Indian Monthly Amount</label>
+                                        <input type="text" class="form-control" id="input-indianMonthlyAmount" name="indianMonthlyAmount" value="<%= pricing[0]?.indianMonthlyAmount ? pricing[0].indianMonthlyAmount : '' %>">
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <!-- Add remaining fields for Indian pricing[0] -->
+                                    <div class="form-group col-sm-6 col-lg-4">
+                                        <label for="input-indianBiMonthlyLink">Indian Semi-Annual Link</label>
+                                        <input type="text" class="form-control" id="input-indianBiMonthlyLink" name="indianBiMonthlyLink" value="<%= pricing[0]?.indianBiMonthlyLink ? pricing[0].indianBiMonthlyLink : '' %>">
+                                    </div>
+                                    <div class="form-group col-sm-6 col-lg-4">
+                                        <label for="input-indianBiMonthlyAmount">Indian Semi-Annual Amount</label>
+                                        <input type="text" class="form-control" id="input-indianBiMonthlyAmount" name="indianBiMonthlyAmount" value="<%= pricing[0]?.indianBiMonthlyAmount ? pricing[0].indianBiMonthlyAmount : '' %>">
+                                    </div>
+                                    <!-- Add remaining fields for Indian pricing[0] -->
+                                </div>
+                                <div class="form-row">
+                                    <!-- Add remaining fields for Indian pricing[0] -->
+                                    <div class="form-group col-sm-6 col-lg-4">
+                                        <label for="input-nonIndianYearlyLink">Indian Yearly Link</label>
+                                        <input type="text" class="form-control" id="input-nonIndianYearlyLink" name="indianYearlyLink" value="<%= pricing[0]?.indianYearlyLink ? pricing[0].indianYearlyLink : '' %>">
+                                    </div>
+                                    <div class="form-group col-sm-6 col-lg-4">
+                                        <label for="input-indianYearlyAmount">Indian Yearly Amount</label>
+                                        <input type="text" class="form-control" id="input-indianYearlyAmount" name="indianYearlyAmount" value="<%= pricing[0]?.indianYearlyAmount ? pricing[0].indianYearlyAmount : '' %>">
+                                    </div>
+                                    <!-- Add remaining fields for Indian pricing[0] -->
+                                </div>
+                                <!-- Add remaining fields for Indian pricing[0] -->
+                
+                                <h6 class="text-primary mt-4 mb-3">Non-India Pricing</h6>
+                                <div class="form-row">
+                                    <div class="form-group col-sm-6 col-lg-4">
+                                        <label for="input-nonIndianMonthlyLink">Non-Indian Monthly Link</label>
+                                        <input type="text" class="form-control" id="input-nonIndianMonthlyLink" name="nonIndianMonthlyLink" value="<%= pricing[0]?.nonIndianMonthlyLink ? pricing[0].nonIndianMonthlyLink : '' %>">
+                                    </div>
+                                    <div class="form-group col-sm-6 col-lg-4">
+                                        <label for="input-nonIndianMonthlyAmount">Non-Indian Monthly Amount</label>
+                                        <input type="text" class="form-control" id="input-nonIndianMonthlyAmount" name="nonIndianMonthlyAmount" value="<%= pricing[0]?.nonIndianMonthlyAmount ? pricing[0].nonIndianMonthlyAmount : '' %>">
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <!-- Add remaining fields for Non-Indian pricing[0] -->
+                                    <div class="form-group col-sm-6 col-lg-4">
+                                        <label for="input-nonIndianBiMonthlyLink">Non-Indian Bi-Monthly Link</label>
+                                        <input type="text" class="form-control" id="input-nonIndianBiMonthlyLink" name="nonIndianBiMonthlyLink" value="<%= pricing[0]?.nonIndianBiMonthlyLink ? pricing[0].nonIndianBiMonthlyLink : '' %>">
+                                    </div>
+                                    <div class="form-group col-sm-6 col-lg-4">
+                                        <label for="input-nonIndianBiMonthlyAmount">Non-Indian Bi-Monthly Amount</label>
+                                        <input type="text" class="form-control" id="input-nonIndianBiMonthlyAmount" name="nonIndianBiMonthlyAmount" value="<%= pricing[0]?.nonIndianBiMonthlyAmount ? pricing[0].nonIndianBiMonthlyAmount : '' %>">
+                                    </div>
+                                    <!-- Add remaining fields for Non-Indian pricing[0] -->
+                                </div>
+                                <div class="form-row">
+                                    <!-- Add remaining fields for Non-Indian pricing[0] -->
+                                    <div class="form-group col-sm-6 col-lg-4">
+                                        <label for="input-nonIndianYearlyLink">Non-Indian Yearly Link</label>
+                                        <input type="text" class="form-control" id="input-nonIndianYearlyLink" name="nonIndianYearlyLink" value="<%= pricing[0]?.nonIndianYearlyLink ? pricing[0].nonIndianYearlyLink : '' %>">
+                                    </div>
+                                    <div class="form-group col-sm-6 col-lg-4">
+                                        <label for="input-nonIndianYearlyAmount">Non-Indian Yearly Amount</label>
+                                        <input type="text" class="form-control" id="input-nonIndianYearlyAmount" name="nonIndianYearlyAmount" value="<%= pricing[0]?.nonIndianYearlyAmount ? pricing[0].nonIndianYearlyAmount : '' %>">
+                                    </div>
+                                    <!-- Add remaining fields for Non-Indian pricing -->
+                                </div>
+                                <!-- Add remaining fields for Non-Indian pricing -->
+
+                                <h6 class="text-primary mt-4 mb-3">Subsciption Plans Pricing</h6>
+                                <div class="form-row">
+                                    <div class="form-group col-sm-6 col-lg-4">
+                                        <label for="input-nonIndianMonthlyLink">Starter Link</label>
+                                        <input type="text" class="form-control" id="input-nonIndianMonthlyLink" name="starterLink" value="<%= pricing[0]?.starterLink ? pricing[0].starterLink : '' %>">
+                                    </div>
+                                    <div class="form-group col-sm-6 col-lg-4">
+                                        <label for="input-nonIndianMonthlyAmount">Starter Amount</label>
+                                        <input type="text" class="form-control" id="input-nonIndianMonthlyAmount" name="starterAmount" value="<%= pricing[0]?.starterAmount ? pricing[0].starterAmount : '' %>">
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <!-- Add remaining fields for Non-Indian pricing[0] -->
+                                    <div class="form-group col-sm-6 col-lg-4">
+                                        <label for="input-nonIndianBiMonthlyLink">Essential Link</label>
+                                        <input type="text" class="form-control" id="input-nonIndianBiMonthlyLink" name="essentialLink" value="<%= pricing[0]?.essentialLink ? pricing[0].essentialLink : '' %>">
+                                    </div>
+                                    <div class="form-group col-sm-6 col-lg-4">
+                                        <label for="input-nonIndianBiMonthlyAmount">Essential Amount</label>
+                                        <input type="text" class="form-control" id="input-nonIndianBiMonthlyAmount" name="essentialAmount" value="<%= pricing[0]?.essentialAmount ? pricing[0].essentialAmount : '' %>">
+                                    </div>
+                                    <!-- Add remaining fields for Non-Indian pricing[0] -->
+                                </div>
+                                <div class="form-row">
+                                    <!-- Add remaining fields for Non-Indian pricing[0] -->
+                                    <div class="form-group col-sm-6 col-lg-4">
+                                        <label for="input-nonIndianYearlyLink">Basic Link</label>
+                                        <input type="text" class="form-control" id="input-nonIndianYearlyLink" name="basicLink" value="<%= pricing[0]?.basicLink ? pricing[0].basicLink : '' %>">
+                                    </div>
+                                    <div class="form-group col-sm-6 col-lg-4">
+                                        <label for="input-nonIndianYearlyAmount">Basic Amount</label>
+                                        <input type="text" class="form-control" id="input-nonIndianYearlyAmount" name="basicAmount" value="<%= pricing[0]?.basicAmount ? pricing[0].basicAmount : '' %>">
+                                    </div>
+                                    <!-- Add remaining fields for Non-Indian pricing -->
+                                </div>
+                                <!-- Add remaining fields for Non-Indian pricing -->
+                                <div class="form-row">
+                                    <!-- Add remaining fields for Non-Indian pricing[0] -->
+                                    <div class="form-group col-sm-6 col-lg-4">
+                                        <label for="input-nonIndianYearlyLink">Plus Link</label>
+                                        <input type="text" class="form-control" id="input-nonIndianYearlyLink" name="plusLink" value="<%= pricing[0]?.plusLink ? pricing[0].plusLink : '' %>">
+                                    </div>
+                                    <div class="form-group col-sm-6 col-lg-4">
+                                        <label for="input-nonIndianYearlyAmount">Plus Amount</label>
+                                        <input type="text" class="form-control" id="input-nonIndianYearlyAmount" name="plusAmount" value="<%= pricing[0]?.plusAmount ? pricing[0].plusAmount : '' %>">
+                                    </div>
+                                    <!-- Add remaining fields for Non-Indian pricing -->
+                                </div>
+                                <!-- Add remaining fields for Non-Indian pricing -->
+                                <div class="form-row">
+                                    <!-- Add remaining fields for Non-Indian pricing[0] -->
+                                    <div class="form-group col-sm-6 col-lg-4">
+                                        <label for="input-nonIndianYearlyLink">Pro Link</label>
+                                        <input type="text" class="form-control" id="input-nonIndianYearlyLink" name="proLink" value="<%= pricing[0]?.proLink ? pricing[0].proLink : '' %>">
+                                    </div>
+                                    <div class="form-group col-sm-6 col-lg-4">
+                                        <label for="input-nonIndianYearlyAmount">Pro Amount</label>
+                                        <input type="text" class="form-control" id="input-nonIndianYearlyAmount" name="proAmount" value="<%= pricing[0]?.proAmount ? pricing[0].proAmount : '' %>">
+                                    </div>
+                                    <!-- Add remaining fields for Non-Indian pricing -->
+                                </div>
+                                <!-- Add remaining fields for Non-Indian pricing -->
+                                <div class="form-row">
+                                    <!-- Add remaining fields for Non-Indian pricing[0] -->
+                                    <div class="form-group col-sm-6 col-lg-4">
+                                        <label for="input-nonIndianYearlyLink">Premium Link</label>
+                                        <input type="text" class="form-control" id="input-nonIndianYearlyLink" name="premiumLink" value="<%= pricing[0]?.premiumLink ? pricing[0].premiumLink : '' %>">
+                                    </div>
+                                    <div class="form-group col-sm-6 col-lg-4">
+                                        <label for="input-nonIndianYearlyAmount">Premium Amount</label>
+                                        <input type="text" class="form-control" id="input-nonIndianYearlyAmount" name="premiumAmount" value="<%= pricing[0]?.premiumAmount ? pricing[0].premiumAmount : '' %>">
+                                    </div>
+                                    <!-- Add remaining fields for Non-Indian pricing -->
+                                </div>
+                                <!-- Add remaining fields for Non-Indian pricing -->
+                                <div class="form-row">
+                                    <!-- Add remaining fields for Non-Indian pricing[0] -->
+                                    <div class="form-group col-sm-6 col-lg-4">
+                                        <label for="input-nonIndianYearlyLink">Deluxe Link</label>
+                                        <input type="text" class="form-control" id="input-nonIndianYearlyLink" name="deluxeLink" value="<%= pricing[0]?.deluxeLink ? pricing[0].deluxeLink : '' %>">
+                                    </div>
+                                    <div class="form-group col-sm-6 col-lg-4">
+                                        <label for="input-nonIndianYearlyAmount">Deluxe Amount</label>
+                                        <input type="text" class="form-control" id="input-nonIndianYearlyAmount" name="deluxeAmount" value="<%= pricing[0]?.deluxeAmount ? pricing[0].deluxeAmount : '' %>">
+                                    </div>
+                                    <!-- Add remaining fields for Non-Indian pricing -->
+                                </div>
+                                <!-- Add remaining fields for Non-Indian pricing -->
+                                <div class="form-row">
+                                    <!-- Add remaining fields for Non-Indian pricing[0] -->
+                                    <div class="form-group col-sm-6 col-lg-4">
+                                        <label for="input-nonIndianYearlyLink">Elite Link</label>
+                                        <input type="text" class="form-control" id="input-nonIndianYearlyLink" name="eliteLink" value="<%= pricing[0]?.eliteLink ? pricing[0].eliteLink : '' %>">
+                                    </div>
+                                    <div class="form-group col-sm-6 col-lg-4">
+                                        <label for="input-nonIndianYearlyAmount">Elite Amount</label>
+                                        <input type="text" class="form-control" id="input-nonIndianYearlyAmount" name="eliteAmount" value="<%= pricing[0]?.eliteAmount ? pricing[0].eliteAmount : '' %>">
+                                    </div>
+                                    <!-- Add remaining fields for Non-Indian pricing -->
+                                </div>
+                                <!-- Add remaining fields for Non-Indian pricing -->
+                                <div class="form-row">
+                                    <!-- Add remaining fields for Non-Indian pricing[0] -->
+                                    <div class="form-group col-sm-6 col-lg-4">
+                                        <label for="input-nonIndianYearlyLink">Ultimate Link</label>
+                                        <input type="text" class="form-control" id="input-nonIndianYearlyLink" name="ultimateLink" value="<%= pricing[0]?.ultimateLink ? pricing[0].ultimateLink : '' %>">
+                                    </div>
+                                    <div class="form-group col-sm-6 col-lg-4">
+                                        <label for="input-nonIndianYearlyAmount">Ultimate Amount</label>
+                                        <input type="text" class="form-control" id="input-nonIndianYearlyAmount" name="ultimateAmount" value="<%= pricing[0]?.ultimateAmount ? pricing[0].ultimateAmount : '' %>">
+                                    </div>
+                                    <!-- Add remaining fields for Non-Indian pricing -->
+                                </div>
+                                <!-- Add remaining fields for Non-Indian pricing -->
+
+                                <div class="form-row">
+                                    <div class="form-group col-sm-6 col-lg-4">
+                                        <label for="input-nonIndianStarterLink">NonIndian-Starter Link</label>
+                                        <input type="text" class="form-control" id="input-nonIndianStarterLink" name="nonIndianStarterLink" value="<%= pricing[0]?.nonIndianStarterLink ? pricing[0].nonIndianStarterLink : '' %>">
+                                    </div>
+                                    <div class="form-group col-sm-6 col-lg-4">
+                                        <label for="input-nonIndianStarterAmount">NonIndian-Starter Amount</label>
+                                        <input type="text" class="form-control" id="input-nonIndianStarterAmount" name="nonIndianStarterAmount" value="<%= pricing[0]?.nonIndianStarterAmount ? pricing[0].nonIndianStarterAmount : '' %>">
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group col-sm-6 col-lg-4">
+                                        <label for="input-nonIndianEssentialLink">NonIndian-Essential Link</label>
+                                        <input type="text" class="form-control" id="input-nonIndianEssentialLink" name="nonIndianEssentialLink" value="<%= pricing[0]?.nonIndianEssentialLink ? pricing[0].nonIndianEssentialLink : '' %>">
+                                    </div>
+                                    <div class="form-group col-sm-6 col-lg-4">
+                                        <label for="input-nonIndianEssentialAmount">NonIndian-Essential Amount</label>
+                                        <input type="text" class="form-control" id="input-nonIndianEssentialAmount" name="nonIndianEssentialAmount" value="<%= pricing[0]?.nonIndianEssentialAmount ? pricing[0].nonIndianEssentialAmount : '' %>">
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group col-sm-6 col-lg-4">
+                                        <label for="input-nonIndianBasicLink">NonIndian-Basic Link</label>
+                                        <input type="text" class="form-control" id="input-nonIndianBasicLink" name="nonIndianBasicLink" value="<%= pricing[0]?.nonIndianBasicLink ? pricing[0].nonIndianBasicLink : '' %>">
+                                    </div>
+                                    <div class="form-group col-sm-6 col-lg-4">
+                                        <label for="input-nonIndianBasicAmount">NonIndian-Basic Amount</label>
+                                        <input type="text" class="form-control" id="input-nonIndianBasicAmount" name="nonIndianBasicAmount" value="<%= pricing[0]?.nonIndianBasicAmount ? pricing[0].nonIndianBasicAmount : '' %>">
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group col-sm-6 col-lg-4">
+                                        <label for="input-nonIndianPlusLink">NonIndian-Plus Link</label>
+                                        <input type="text" class="form-control" id="input-nonIndianPlusLink" name="nonIndianPlusLink" value="<%= pricing[0]?.nonIndianPlusLink ? pricing[0].nonIndianPlusLink : '' %>">
+                                    </div>
+                                    <div class="form-group col-sm-6 col-lg-4">
+                                        <label for="input-nonIndianPlusAmount">NonIndian-Plus Amount</label>
+                                        <input type="text" class="form-control" id="input-nonIndianPlusAmount" name="nonIndianPlusAmount" value="<%= pricing[0]?.nonIndianPlusAmount ? pricing[0].nonIndianPlusAmount : '' %>">
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group col-sm-6 col-lg-4">
+                                        <label for="input-nonIndianProLink">NonIndian-Pro Link</label>
+                                        <input type="text" class="form-control" id="input-nonIndianProLink" name="nonIndianProLink" value="<%= pricing[0]?.nonIndianProLink ? pricing[0].nonIndianProLink : '' %>">
+                                    </div>
+                                    <div class="form-group col-sm-6 col-lg-4">
+                                        <label for="input-nonIndianProAmount">NonIndian-Pro Amount</label>
+                                        <input type="text" class="form-control" id="input-nonIndianProAmount" name="nonIndianProAmount" value="<%= pricing[0]?.nonIndianProAmount ? pricing[0].nonIndianProAmount : '' %>">
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group col-sm-6 col-lg-4">
+                                        <label for="input-nonIndianPremiumLink">NonIndian-Premium Link</label>
+                                        <input type="text" class="form-control" id="input-nonIndianPremiumLink" name="nonIndianPremiumLink" value="<%= pricing[0]?.nonIndianPremiumLink ? pricing[0].nonIndianPremiumLink : '' %>">
+                                    </div>
+                                    <div class="form-group col-sm-6 col-lg-4">
+                                        <label for="input-nonIndianPremiumAmount">NonIndian-Premium Amount</label>
+                                        <input type="text" class="form-control" id="input-nonIndianPremiumAmount" name="nonIndianPremiumAmount" value="<%= pricing[0]?.nonIndianPremiumAmount ? pricing[0].nonIndianPremiumAmount : '' %>">
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group col-sm-6 col-lg-4">
+                                        <label for="input-nonIndianDeluxeLink">NonIndian-Deluxe Link</label>
+                                        <input type="text" class="form-control" id="input-nonIndianDeluxeLink" name="nonIndianDeluxeLink" value="<%= pricing[0]?.nonIndianDeluxeLink ? pricing[0].nonIndianDeluxeLink : '' %>">
+                                    </div>
+                                    <div class="form-group col-sm-6 col-lg-4">
+                                        <label for="input-nonIndianDeluxeAmount">NonIndian-Deluxe Amount</label>
+                                        <input type="text" class="form-control" id="input-nonIndianDeluxeAmount" name="nonIndianDeluxeAmount" value="<%= pricing[0]?.nonIndianDeluxeAmount ? pricing[0].nonIndianDeluxeAmount : '' %>">
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group col-sm-6 col-lg-4">
+                                        <label for="input-nonIndianEliteLink">NonIndian-Elite Link</label>
+                                        <input type="text" class="form-control" id="input-nonIndianEliteLink" name="nonIndianEliteLink" value="<%= pricing[0]?.nonIndianEliteLink ? pricing[0].nonIndianEliteLink : '' %>">
+                                    </div>
+                                    <div class="form-group col-sm-6 col-lg-4">
+                                        <label for="input-nonIndianEliteAmount">NonIndian-Elite Amount</label>
+                                        <input type="text" class="form-control" id="input-nonIndianEliteAmount" name="nonIndianEliteAmount" value="<%= pricing[0]?.nonIndianEliteAmount ? pricing[0].nonIndianEliteAmount : '' %>">
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group col-sm-6 col-lg-4">
+                                        <label for="input-nonIndianUltimateLink">NonIndian-Ultimate Link</label>
+                                        <input type="text" class="form-control" id="input-nonIndianUltimateLink" name="nonIndianUltimateLink" value="<%= pricing[0]?.nonIndianUltimateLink ? pricing[0].nonIndianUltimateLink : '' %>">
+                                    </div>
+                                    <div class="form-group col-sm-6 col-lg-4">
+                                        <label for="input-nonIndianUltimateAmount">NonIndian-Ultimate Amount</label>
+                                        <input type="text" class="form-control" id="input-nonIndianUltimateAmount" name="nonIndianUltimateAmount" value="<%= pricing[0]?.nonIndianUltimateAmount ? pricing[0].nonIndianUltimateAmount : '' %>">
+                                    </div>
+                                </div>
+                
+                            </div>
+                            <div class="card-footer">
+                                <button type="submit" name="submit" class="btn btn-success ml-auto d-flex">Submit</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+				
+			</div>
+		</div>
+	</div>
+	</div>
+	</div>
+
+	<script src="/assets/jquery.min.js"></script>
+	<script src="/assets/bootstrap.bundle.min.js"></script>
+	<script src="/assets/jquery.easing.min.js"></script>
+	<script src="/assets/sb-admin-2.min.js?v=6"></script>
+	<script src="/assets/jquery.dataTables.min.js"></script>
+	<script src="/assets/dataTables.bootstrap4.min.js"></script>
+	<script>
+		// Check if the success parameter is present in the URL
+		const urlParams = new URLSearchParams(window.location.search);
+		const success = urlParams.get('success');
+
+		if (success === 'true') {
+			// Display an alert message indicating that the password has been changed successfully
+			alert('Info changed successfully!');
+		}
+	</script>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    // Check if the message exists in the page
+    <% if (typeof Message !== 'undefined') { %>
+        const successMessage = '<%= Message %>';
+        // Show the toast message if it exists
+        const toast = document.getElementById('toast-success');
+        if (toast && successMessage) {
+            toast.style.display = 'block';
+            toast.querySelector('.toast-body').innerText = successMessage;
+        }
+    <% } %>
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,843 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Settings | AutoBids - Revolutionizing Freelance Bidding with Cutting-Edge AI Technology</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="Tailwind CSS AI Startup & Technology Saas & AI Software Landing Page Template, ai agency, ai application, ai business, ai, creative ai art, ai it solutions, modern web ai, multipurpose, saas, nft art, nft software, tailwind css." name="description" />
+    <meta content="coderthemes" name="author" />
+
+    <!-- App favicon -->
+    <link rel="shortcut icon" href="/assets/images/favicon.ico">
+
+    <!--Swiper slider css-->
+    <link href="/assets/libs/swiper/swiper-bundle.min.css" rel="stylesheet" type="text/css">
+
+    <!-- Glightbox Plugin css -->
+    <link href="/assets/libs/glightbox/css/glightbox.min.css" rel="stylesheet" type="text/css">
+
+    <!-- Style css -->
+    <link href="/assets/css/style.min.css" rel="stylesheet" type="text/css">
+    <link href="/assets/css/style.css" rel="stylesheet" type="text/css">
+
+    <!-- Icons css -->
+    <link href="/assets/css/icons.min.css" rel="stylesheet" type="text/css">
+
+    <!-- Animation on Scroll css -->
+    <link href="/assets/libs/aos/aos.css" rel="stylesheet" type="text/css">
+    <style>
+        .skills-card {
+            width: 80%;
+            margin : 10px auto;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 20px;
+            background-color: #fff;
+        }
+        
+        .skills-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .sync-button {
+            padding: 5px 20px;
+            background-color: #f0ad4e;
+            border: none;
+            border-radius: 3px;
+            color: white;
+            cursor: pointer;
+        }
+        
+        .skills-notice {
+            background-color: #f9f9f9;
+            border: 1px solid #e9e9e9;
+            border-left: 3px solid #f0ad4e;
+            padding: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .skills-list {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+        }
+        
+        .skill {
+            display: flex;
+            align-items: center;
+        }
+        
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 60px;
+            height: 34px;
+            margin-right: 10px;
+        }
+        
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+        
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            -webkit-transition: .4s;
+            transition: .4s;
+        }
+        
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 26px;
+            width: 26px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            -webkit-transition: .4s;
+            transition: .4s;
+        }
+        
+        input:checked + .slider {
+            background-color: #2196F3;
+        }
+        
+        input:focus + .slider {
+            box-shadow: 0 0 1px #2196F3;
+        }
+        
+        input:checked + .slider:before {
+            -webkit-transform: translateX(26px);
+            -ms-transform: translateX(26px);
+            transform: translateX(26px);
+        }
+        
+        /* Rounded sliders */
+        .slider.round {
+            border-radius: 34px;
+        }
+        
+        .slider.round:before {
+            border-radius: 50%;
+        }
+        
+        .excluded-skills-card {
+            margin-top: 30px;
+        }
+        
+        .excluded-skills-toggle {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .excluded-skills-input {
+            border: 1px solid #ddd;
+            padding: 10px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        
+        .skill-tag {
+            background-color: #eff0f1;
+            border-radius: 3px;
+            padding: 5px 10px;
+            margin-right: 5px;
+            margin-bottom: 5px;
+        }
+        
+        .excluded-skills-input input {
+            border: none;
+            margin-left: 5px;
+            flex-grow: 1;
+        }
+        
+        .submit-button {
+            width: 100%;
+            padding: 10px;
+            background-color: #5cb85c;
+            border: none;
+            border-radius: 3px;
+            color: white;
+            cursor: pointer;
+        }
+        
+        .submit-button:hover {
+            background-color: #4cae4c;
+        }
+
+        .autobid-card {
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            max-width: 80%;
+            margin: auto;
+          }
+          
+          .card-header h2,
+          .card-header p {
+            margin: 0;
+            padding: 16px;
+            background: #007bff;
+            color: white;
+          }
+          
+          .card-body {
+            padding: 16px;
+          }
+          
+          .card-footer {
+            background: #eee;
+            padding: 16px;
+            text-align: right;
+          }
+          
+          .form-group {
+            margin-bottom: 1em;
+          }
+          
+          .form-group label {
+            display: block;
+            margin-bottom: .5em;
+          }
+          
+          .form-group select {
+            width: 100%;
+            padding: 8px;
+            border-radius: 4px;
+            border: 1px solid #ddd;
+          }
+          
+          .status {
+            margin-bottom: 1em;
+          }
+          
+          .status label {
+            margin-left: 8px;
+          }
+          
+          input[type="checkbox"] {
+            transform: scale(1.5);
+          }
+          
+          button {
+            padding: 8px 16px;
+            border: none;
+            border-radius: 4px;
+            background: #007bff;
+            color: white;
+            cursor: pointer;
+            font-size: 1em;
+          }
+          
+          button:hover {
+            background: #0056b3;
+          }
+          
+          .autobid-summary, .notice {
+            background: #f9f9f9;
+            padding: 16px;
+            border-top: 1px solid #ddd;
+          }
+          
+          .notice h3, .autobid-summary h3 {
+            margin-top: 0;
+          }
+
+          .stats-card {
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            max-width: 80%;
+            margin: auto;
+            margin-top: 10px;
+          }
+          
+          .card-header h1 {
+            color: #333;
+            margin-bottom: 0;
+          }
+          
+          .card-body {
+            padding: 20px 0;
+          }
+          
+          .notice {
+            background: #fff8c4;
+            padding: 10px;
+            margin-bottom: 20px;
+            font-size: 0.9em;
+          }
+          
+          .filter {
+            margin-bottom: 10px;
+          }
+          
+          .filter label {
+            display: block;
+            margin-bottom: 5px;
+          }
+          
+          .filter select,
+          .filter input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+          }
+          
+          .card-footer {
+            text-align: right;
+          }
+          
+          button {
+            padding: 10px 20px;
+            background: #5cb85c;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1em;
+          }
+          
+          button:hover {
+            background: #4cae4c;
+          }
+
+          .budget-card {
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            max-width: 80%;
+            margin: auto;
+            margin-top: 10px;
+          }
+          
+          .card-header h1 {
+            color: #333;
+            margin-bottom: 20px;
+          }
+          
+          .card-body {
+            padding-bottom: 20px;
+          }
+          
+          .notice {
+            background: #fff8c4;
+            padding: 10px;
+            margin-bottom: 20px;
+            font-size: 0.9em;
+            border-radius: 4px;
+          }
+          
+          .notice strong {
+            font-weight: bold;
+          }
+          
+          .budget-input {
+            margin-bottom: 10px;
+          }
+          
+          .budget-input label {
+            display: block;
+            margin-bottom: 5px;
+          }
+          
+          .budget-input input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+          }
+          
+          .card-footer {
+            text-align: right;
+          }
+          
+          button {
+            padding: 10px 20px;
+            background: #5cb85c;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1em;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+          }
+          
+          button:hover {
+            background: #4cae4c;
+          }
+
+          .manage-bid-container {
+            width: 80%;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+          }
+          .notice {
+            padding: 10px;
+            background-color: #ffffe0;
+            border-left: 6px solid #ffeb3b;
+            margin-bottom: 15px;
+          }
+          .explanation {
+            margin-bottom: 20px;
+          }
+          .input-group {
+            margin-bottom: 10px;
+          }
+          .input-group label {
+            display: block;
+            margin-bottom: 5px;
+          }
+          .input-group input[type="text"] {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+          }
+    </style>
+</head>
+
+<body class="bg-default-900">
+    <div>
+        <div class="fixed top-0 -z-10">
+            <div class="blur-[200px] w-[500px] h-[500px] rounded-full bg-gradient-to-tl from-red-600/30 to-pink-600/30"></div>
+        </div>
+        <div class="fixed top-0 end-0 -z-10">
+            <div class="blur-[200px] w-[500px] h-[500px] rounded-full bg-gradient-to-tl from-red-600/30 to-pink-600/30"></div>
+        </div>
+        <div class="fixed inset-0 flex items-center justify-center -z-10">
+            <div class="blur-[200px] w-[500px] h-[500px] rounded-full bg-gradient-to-tl from-red-600/30 to-pink-600/30"></div>
+        </div>
+        <div class="fixed bottom-0 start-0 -z-10">
+            <div class="blur-[200px] w-[500px] h-[500px] rounded-full bg-gradient-to-tl from-red-600/30 to-pink-600/30"></div>
+        </div>
+        <div class="fixed bottom-0 end-0 -z-10">
+            <div class="blur-[200px] w-[500px] h-[500px] rounded-full bg-gradient-to-tl from-red-600/30 to-pink-600/30"></div>
+        </div>
+    </div><!-- end body bg gradient -->
+
+    <!-- Navbar Start -->
+    <header id="navbar-sticky" class="navbar">
+        <div class="container">
+            <nav>
+                <!-- Navbar Brand Logo -->
+                <a href="index-5.html" class="logo">
+                    <!--  <img src="/assets/images/logo.png" class="h-10" alt="WebAi Logo">  -->
+                    <h2><image style="height: 30px;" src="/images/bidmanclack.png"></image></h2>
+                </a>
+
+                <!-- Moblie Menu Toggle Button (Offcanvas Button) -->
+                <div class="lg:hidden flex items-center ms-auto px-2.5">
+                    <button class="hs-collapse-toggle inline-flex items-center justify-center h-9 w-12 rounded-md border border-white/20 bg-default-100/5" type="button" id="hs-unstyled-collapse" data-hs-collapse="#mobileMenu" data-hs-type="collapse">
+                        <i data-lucide="menu" class="h-5 w-5 stroke-white"></i>
+                    </button>
+                </div>
+
+                <!-- Nevigation Menu -->
+                <div id="mobileMenu" class="hs-collapse transition-all duration-300 lg:basis-auto basis-full grow hidden lg:flex items-center justify-center mx-auto mt-2 lg:mt-0">
+                    <ul id="navbar-navlist" class="navbar-nav">
+                        <!-- Home Page Link -->
+                        <li class="nav-item">
+                            <a class="nav-link" href="/dashboard">Dashboard</a>
+                        </li>
+
+                        <!-- Service Page Link -->
+                        <li class="nav-item">
+                            <a class="nav-link" href="#categories">My Bids</a>
+                        </li>
+
+                        <!-- Features Page Link -->
+                        <li class="nav-item">
+                            <a class="nav-link" href="/dashboard">Search Projects</a>
+                        </li>
+
+                        <!-- Price Page Link -->
+                        <li class="nav-item">
+                            <a class="nav-link" href="/settings">Settings</a>
+                        </li>
+
+                        <!-- Faq Page Link -->
+                        <li class="nav-item">
+                            <a class="nav-link" href="#faq">Profile</a>
+                        </li>
+
+                        
+                    </ul>
+                    <!-- Download Button -->
+                    <div class="lg:hidden flex items-center pt-4 mt-4 lg:pt-0 lg:mt-0 border-t border-white/10 lg:border-none">
+                        <a href="/logout" class="inline-flex items-center justify-center gap-2 bg-primary text-white py-2 px-6 rounded-full hover:bg-primary-hover transition-all duration-3"><i data-lucide="arrow-big-right-dash" class="h-5 w-5 me-2"></i> Logout</a>
+                    </div>
+                </div>
+                <!-- Download Button -->
+                <div class="hidden lg:flex items-center">
+                    <a href="/logout" class="inline-flex items-center justify-center gap-2 bg-primary text-white py-2 px-6 rounded-full hover:bg-primary-hover transition-all duration-300"><i data-lucide="arrow-big-right-dash" class="h-5 w-5 me-2"></i> Logout</a>
+                </div>
+            </nav><!-- end nav -->
+        </div>
+    </header>
+    <!-- Navbar End -->
+
+    <!-- Start -->
+    <section id="home" class="relative pt-[74px] overflow-hidden" style="margin-bottom : 50px">
+        <div class="skills-card">
+            <div class="skills-header">
+                <h2>Manage Included Skills</h2>
+                <button class="sync-button">Sync Skills</button>
+            </div>
+            <div class="skills-notice">
+                <p>Notice! This section only shows skills that are added on your profile.</p>
+            </div>
+            <div class="skills-list">
+                <!-- Repeat this block for each skill -->
+                <div class="skill">
+                    <label class="switch">
+                        <input type="checkbox">
+                        <span class="slider"></span>
+                    </label>
+                    <span class="skill-name">Android</span>
+                </div>
+
+                <div class="skill">
+                    <label class="switch">
+                        <input type="checkbox">
+                        <span class="slider"></span>
+                    </label>
+                    <span class="skill-name">Flutter</span>
+                </div>
+
+                <div class="skill">
+                    <label class="switch">
+                        <input type="checkbox">
+                        <span class="slider"></span>
+                    </label>
+                    <span class="skill-name">React</span>
+                </div>
+
+                <div class="skill">
+                    <label class="switch">
+                        <input type="checkbox" checked>
+                        <span class="slider"></span>
+                    </label>
+                    <span class="skill-name">Web</span>
+                </div>
+                <!-- ... other skills ... -->
+            </div>
+        </div>
+        <div class="skills-card">
+
+            <div class="excluded-skills-card">
+                <div class="skills-header">
+                    <h2>Manage Excluded Skills</h2>
+                </div>
+                <div class="skills-notice">
+                    <p>Notice! These skills will always be ignored when auto bidding is enabled.</p>
+                </div>
+                <div class="excluded-skills-toggle">
+                    <label class="switch">
+                        <input type="checkbox">
+                        <span class="slider round"></span>
+                    </label>
+                    <span>Show project for these skills on search page?</span>
+                </div>
+                <div class="excluded-skills-input">
+                    <!-- Pretend skills tags, replace with dynamic content as needed -->
+                    <span class="skill-tag">WordPress</span>
+                    <span class="skill-tag">Laravel</span>
+                    <input type="text" placeholder="Type here">
+                </div>
+                <button class="submit-button">Submit</button>
+            </div>
+        </div>
+
+        <div class="autobid-card">
+            <div class="card-header">
+              <h2>Autobidding</h2>
+              <p>Configure your autobidding by setting time interval, time limit and bids limit.</p>
+            </div>
+            <div class="card-body" style="padding:20px">
+                <div class="excluded-skills-toggle">
+                    <label class="switch">
+                        <input type="checkbox">
+                        <span class="slider round"></span>
+                    </label>
+                    <span>Status</span>
+                </div>
+              <div class="form-group">
+                <label for="time-interval">Time interval</label>
+                <select id="time-interval">
+                  <option>Every 1 minute</option>
+                  <!-- Add more options here -->
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="time-limit">Time limit</label>
+                <select id="time-limit">
+                  <option>No time limit</option>
+                  <!-- Add more options here -->
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="bids-limit">Bids limit</label>
+                <select id="bids-limit">
+                  <option>No bids limit</option>
+                  <!-- Add more options here -->
+                </select>
+              </div>
+            </div>
+            <div class="card-footer">
+                <button class="submit-button">Submit</button>
+            </div>
+            <div class="autobid-summary">
+              <h3>Autobid Summary:</h3>
+              <p>Bidman will automatically place bid after every 1 minute.</p>
+            </div>
+            <div class="notice">
+              <h3>Notice!</h3>
+              <ul>
+                <li>Bids limit will only count those bids which are placed through autobidding.</li>
+                <li>To reset your time or bids limit, reselect the same value from dropdown.</li>
+                <li>To remove time or bids limit, select "No time limit" or "No bids limit" from respective dropdowns.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="stats-card">
+            <div class="card-header">
+              <h1>Manage Client Stats</h1>
+            </div>
+            <div class="card-body">
+              <div class="notice">
+                <p>Notice! You will see projects on search page regardless of these filters, however those projects will always be ignored when auto bidding is enabled.</p>
+              </div>
+              <div class="filter">
+                <label for="payment-verified">Payment verified</label>
+                <select id="payment-verified">
+                  <option>Does not matter</option>
+                  <!-- Add more options here -->
+                </select>
+              </div>
+              <div class="filter">
+                <label for="email-verified">Email verified</label>
+                <select id="email-verified">
+                  <option>Does not matter</option>
+                  <!-- Add more options here -->
+                </select>
+              </div>
+              <div class="filter">
+                <label for="deposit-made">Deposit made</label>
+                <select id="deposit-made">
+                  <option>Does not matter</option>
+                  <!-- Add more options here -->
+                </select>
+              </div>
+              <div class="filter">
+                <label for="identity-verified">Identity verified</label>
+                <select id="identity-verified">
+                  <option>Does not matter</option>
+                  <!-- Add more options here -->
+                </select>
+              </div>
+              <div class="filter">
+                <label for="minimum-rating">Minimum Rating</label>
+                <select id="minimum-rating">
+                  <option>Does not matter</option>
+                  <!-- Add more options here -->
+                </select>
+              </div>
+              <div class="filter">
+                <label for="minimum-projects">Minimum Projects</label>
+                <input type="number" id="minimum-projects" value="0">
+              </div>
+            </div>
+            <div class="card-footer">
+                <button class="submit-button">Submit</button>
+            </div>
+          </div>
+
+          <div class="budget-card">
+            <div class="card-header">
+              <h1>Manage Project Budget</h1>
+            </div>
+            <div class="card-body">
+              <div class="notice">
+                <p><strong>Notice!</strong></p>
+                <ul>
+                  <li>You will only see those project whose minimum budget is equal or greater than your entered values.</li>
+                  <li>Base currency is USD. For other currencies, budget will be converted as per latest conversion rate.</li>
+                </ul>
+              </div>
+              <div class="budget-input">
+                <label for="min-fixed-budget">Min fixed budget (in USD)</label>
+                <input type="number" id="min-fixed-budget" name="min-fixed-budget" value="250">
+              </div>
+              <div class="budget-input">
+                <label for="min-hourly-budget">Min hourly budget (in USD)</label>
+                <input type="number" id="min-hourly-budget" name="min-hourly-budget" value="20">
+              </div>
+            </div>
+            
+            <div class="card-footer">
+                <button class="submit-button">Submit</button>
+            </div>
+          </div>
+
+
+
+          <div class="manage-bid-container">
+            <div class="skills-header">
+                <h2>Manage Bid Price</h2>
+            </div>
+            <div class="notice">
+              <p><strong>Notice!</strong></p>
+              <ul>
+                <li>Default value is 100 for lower and higher.</li>
+                <li>Base bid price is average of project budget.</li>
+                <li>Values are in %.</li>
+              </ul>
+            </div>
+            <div class="explanation">
+              <p><strong>Explanation:</strong> If Project budget is 250-750 USD.</p>
+              <ul>
+                <li>If you are using default values, bid price will be 500 USD.</li>
+                <li>If lower=100 and higher=150, bid price will be between 500-750 USD.</li>
+                <li>If lower=50 and higher=100, bid price will be between 250-500 USD.</li>
+                <li>If lower=50 and higher=150, bid price will be between 250-750 USD.</li>
+              </ul>
+            </div>
+            <form>
+              <div class="input-group">
+                <label for="lower-than-average">Lower than average (in %)</label>
+                <input type="text" id="lower-than-average" name="lower-than-average" value="110">
+              </div>
+              <div class="input-group">
+                <label for="higher-than-average">Higher than average (in %)</label>
+                <input type="text" id="higher-than-average" name="higher-than-average" value="100">
+              </div>
+              <!-- Add submit button if needed -->
+              <!-- <input type="submit" value="Submit"> -->
+              <button class="submit-button">Submit</button>
+            </form>
+          </div>
+    </section><!--end section-->
+    <!-- End -->
+
+
+   <!-- Footer section start -->
+<footer class="bg-default-950/40 backdrop-blur-3xl">
+    <div class="container lg:px-20">
+        <div class="flex flex-col lg:flex-row justify-between gap-14 py-24">
+            <!-- Left Side -->
+            <div class="lg:w-6/12">
+                <a href="#" class="flex items-center gap-2 logo">
+                    <h3 class="text-3xl font-medium capitalize text-white ">AUTOBIDS</h3>
+                </a>
+
+                <p class="text-default-200 text-sm font-medium max-w-xs mt-6">Revolutionizing Freelance Bidding With Cutting-Edge AI Technology</p>
+            </div>
+
+            <!-- Right Side -->
+            <div class="lg:w-6/12">
+                <div class="grid md:grid-cols- sm:grid-cols-2 gap-6">
+                    <div>
+                        <h5 class="text-default-200 text-base font-semibold mb-4 mt-6">Follow Us</h5>
+                        <ul class="flex flex-wrap items-center gap-1">
+                            <li>
+                                <a href="javascript:void(0);" class="h-8 w-8 inline-flex items-center justify-center border border-white/10 rounded-md transition-all duration-500 group hover:bg-primary">
+                                    <i data-lucide="facebook" class="h-4 w-4 text-default-300 group-hover:text-white"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0);" class="h-8 w-8 inline-flex items-center justify-center border border-white/10 rounded-md transition-all duration-500 group hover:bg-primary">
+                                    <i data-lucide="instagram" class="h-4 w-4 text-default-300 group-hover:text-white"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0);" class="h-8 w-8 inline-flex items-center justify-center border border-white/10 rounded-md transition-all duration-500 group hover:bg-primary">
+                                    <i data-lucide="twitter" class="h-4 w-4 text-default-300 group-hover:text-white"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0);" class="h-8 w-8 inline-flex items-center justify-center border border-white/10 rounded-md transition-all duration-500 group hover:bg-primary">
+                                    <i data-lucide="linkedin" class="h-4 w-4 text-default-300 group-hover:text-white"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div><!-- Grid End -->
+    </div><!-- Container End -->
+</footer>
+<!-- Footer section end -->
+
+
+        <div class="border-t border-white/10 py-6">
+            <div class="container lg:px-20 flex flex-wrap justify-center items-center gap-4 h-full md:justify-between text-center md:text-start">
+                <p class="text-base font-medium text-default-400">
+                    <script>document.write(new Date().getFullYear())</script>
+                    © AutoBids
+                </p>
+                <p class="text-base font-medium text-default-400">
+                    <a href="#">Terms Conditions & Policy</a>
+                </p>
+            </div><!-- Flex End -->
+        </div><!-- Container End -->
+    </footer>
+    <!-- Footer section End -->
+
+    <!-- Back To Top Start -->
+    <button id="back-to-top" onclick="topFunction()" class="fixed text-xl rounded-full z-10 bottom-5 end-5 h-8 w-8 text-center bg-white backdrop-blur-3xl text-default-950 flex justify-center items-center transition-all duration-500 hover:bg-primary hover:text-white hover:rounded-lg">
+        <i data-lucide="chevron-up" class="h-4 w-4"></i>
+    </button>
+    <!-- Back To Top End -->
+
+    <!-- Plugin Js -->
+    <script src="/assets/libs/preline/preline.js"></script>
+
+    <!-- swiper -->
+    <script src="/assets/libs/swiper/swiper-bundle.min.js"></script>
+
+    <!-- Gumshoejs -->
+    <script src="/assets/libs/gumshoejs/gumshoe.polyfills.min.js"></script>
+    <script src="/assets/libs/glightbox/js/glightbox.min.js"></script>
+
+    <!-- Lucid Icons -->
+    <script src="/assets/libs/lucide/umd/lucide.min.js"></script>
+
+    <!-- Animation on Scroll Plugin Js -->
+    <script src="/assets/libs/aos/aos.js"></script>
+
+    <!-- Counter Js -->
+    <script src="/assets/js/counter.js"></script>
+
+    <!-- Glightbox Js -->
+    <script src="/assets/js/glightbox.js"></script>
+
+    <!-- Theme Js -->
+    <script src="/assets/js/theme.js"></script>
+    <script src="https://kit.fontawesome.com/ee50fd34bc.js" crossorigin="anonymous"></script>
+
+</body>
+
+</html>

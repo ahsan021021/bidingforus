@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<title>About AutoBids AI | AutoBids</title>
+
+	<meta property="og:url" content="https://AutoBids.co/" />
+	<meta property="og:type" content="website" />
+	<meta property="og:title" content="AutoBids" />
+	<meta property="og:description" content="AutoBids is a tool which gives you upper hand to other freelancers" />
+	<meta property="og:image" content="https://cdnbidman.co/images/logo.png" />
+
+	<link rel="icon" href="https://cdnbidman.co/images/favicon/favicon-32x32.png" sizes="32x32">
+	<link rel="icon" href="https://cdnbidman.co/images/favicon/favicon-57x57.png" sizes="57x57">
+	<link rel="icon" href="https://cdnbidman.co/images/favicon/favicon-76x76.png" sizes="76x76">
+	<link rel="icon" href="https://cdnbidman.co/images/favicon/favicon-96x96.png" sizes="96x96">
+	<link rel="icon" href="https://cdnbidman.co/images/favicon/favicon-128x128.png" sizes="128x128">
+	<link rel="icon" href="https://cdnbidman.co/images/favicon/favicon-192x192.png" sizes="192x192">
+	<link rel="icon" href="https://cdnbidman.co/images/favicon/favicon-228x228.png" sizes="228x228">
+	<link rel="shortcut icon" sizes="196x196" href="https://cdnbidman.co/images/favicon/favicon-196x196.png">
+	<link rel="apple-touch-icon" href="https://cdnbidman.co/images/favicon/favicon-120x120.png" sizes="120x120">
+	<link rel="apple-touch-icon" href="https://cdnbidman.co/images/favicon/favicon-152x152.png" sizes="152x152">
+	<link rel="apple-touch-icon" href="https://cdnbidman.co/images/favicon/favicon-180x180.png" sizes="180x180">
+	<meta name="theme-color" content="#012B46">
+	<meta name="msapplication-TileColor" content="#FFFFFF">
+	<meta name="msapplication-TileImage" content="https://cdnbidman.co/images/favicon/favicon-144x144.png">
+
+	<link href="https://cdn.bidman.co/app_assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet"
+		type="text/css">
+	<link
+		href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+		rel="stylesheet">
+	<link href="https://cdn.bidman.co/app_assets/css/sb-admin-2.min.css?v=11" rel="stylesheet">
+	<style type="text/css">
+		.pricing-heading:focus,
+		.pricing-heading:active,
+		.pricing-heading:hover {
+			text-decoration: none;
+		}
+
+		.pricing-row {
+			margin-right: auto;
+			margin-left: auto;
+			justify-content: center;
+		}
+
+		.pricing-row .col-1 {
+			padding-right: 0.25rem;
+			padding-left: 0.25rem;
+			margin-bottom: 0.5rem;
+		}
+
+		.pricing-row .col-1 {
+			flex: 0 0 100%;
+			max-width: 100%;
+			text-align: center;
+		}
+
+		@media (min-width: 400px) {
+			.pricing-row {
+				max-width: 300px;
+			}
+
+			.pricing-row .col-1 {
+				flex: 0 0 150px;
+				max-width: 150px;
+				text-align: left;
+			}
+		}
+
+		@media (min-width: 550px) {
+			.pricing-row {
+				max-width: 450px;
+			}
+		}
+
+		@media (min-width: 850px) {
+			.pricing-row {
+				max-width: 850px;
+			}
+		}
+
+		@media (min-width: 1350px) {
+			.pricing-row {
+				margin-right: -0.25rem;
+				margin-left: -0.25rem;
+				justify-content: center;
+				max-width: initial;
+			}
+
+			.pricing-row .col-1 {
+				flex: 0 0 11.111111%;
+				max-width: 11.111111%;
+			}
+		}
+
+		@media (min-width: 1600px) {
+			.pricing-row .col-1 {
+				flex: 0 0 160px;
+				max-width: 160px;
+			}
+		}
+
+		.pricing-body {
+			border: solid #c7ccd1;
+			border-width: 0px 1px 1px 1px;
+			padding: 6px 7px;
+			border-radius: 5px;
+		}
+
+		.pricing-body p {
+			font-size: 15px;
+			line-height: 1.4;
+			margin-bottom: 2px;
+		}
+
+		.pricing-body .pricing-title {
+			font-size: 17px;
+			margin-bottom: 5px;
+		}
+
+		@keyframes blink {
+			0% {
+				scale: 1.05
+			}
+
+			50% {
+				scale: 1
+			}
+
+			100% {
+				scale: 1.05
+			}
+		}
+
+		.blink {
+			animation: blink 1s ease-in infinite;
+			background-color: #e17f05;
+		}.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0, 0, 0); /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button */
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+	</style>
+</head>
+
+<body id="page-top" class="sidebar-toggled">
+	<div id="wrapper">
+
+		<div id="content-wrapper" class="d-flex flex-column has-setting">
+			<div id="content">
+
+
+				<nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+
+					<a class="navbar-brand position-relative" href="/myBids>
+						<h2><image style="height: 30px;" src="/images/bidmanclack.png"></image></h2>
+					</a>
+
+					<ul class="navbar-nav">
+						<li class="nav-item">
+							<a class="nav-link text-dark" style="font-size: 15px;" href="/myBids" role="button"><span
+									class="d-none d-sm-block">My&nbsp;</span>Bids</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link text-dark" style="font-size: 15px;" href="/search"
+								role="button">Search<span class="d-none d-sm-block">&nbsp;Projects</span></a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" style="font-size: 15px; color: #FE6500; font-weight: 600" href="/bidai"
+								role="button"><span class="d-none d-sm-block">Autobids&nbsp;</span>AI</a>
+						</li>
+					</ul>
+
+					<ul class="navbar-nav ml-auto">
+						<li class="nav-item dropdown no-arrow">
+							<a class="nav-link dropdown-toggle" style="font-size: 15px;" href="#" id="userDropdown"
+								role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								<div class="d-none d-sm-block mr-sm-2 text-right">
+									<p class="text-gray-600 small m-0">
+										<%= user.username %>
+									</p>
+								</div>
+								<i class="fas fa-chevron-down mr-2 text-center text-dark"
+									style="width: 20px;top: -2px;position: relative;"></i>
+								<span class="position-relative">
+									<img class="img-profile rounded-circle"
+										src="<%= user.profilePicture ? user.profilePicture : 'https://cdn3.f-cdn.com/ppic/245304646/logo/75311776/profile_logo_75311776.jpg' %>">
+								</span>
+							</a>
+							<div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
+								aria-labelledby="userDropdown">
+
+								<div class="dropdown-divider"></div>
+								<!-- <a class="dropdown-item" href="/settings" style="color: #18557F;">
+									<i class="fas fa-user-secret mr-2 text-center" style="width: 20px"></i>
+									Autobidding Settings
+								</a> -->
+								<a class="dropdown-item" href="/skills">
+									<i class="fas fa-heart mr-2 text-center" style="width: 20px"></i>
+									Skills
+								</a>
+								<a class="dropdown-item" href="/skills-sets">
+									<i class="fas fa-layer-group mr-2 text-center" style="width: 20px"></i>
+									Skill Sets
+								</a>
+								<a class="dropdown-item" href="/countries">
+									<i class="fas fa-flag mr-2 text-center" style="width: 20px"></i>
+									Countries
+								</a>
+								<a class="dropdown-item" href="/client-stats">
+									<i class="fas fa-filter mr-2 text-center" style="width: 20px"></i>
+									Client Stats
+								</a>
+								<a class="dropdown-item" href="/budget">
+									<i class="fas fa-dollar-sign mr-2 text-center" style="width: 20px"></i>
+									Project Budget
+								</a>
+								<a class="dropdown-item" href="/bidPrice">
+									<i class="fas fa-gavel mr-2 text-center" style="width: 20px"></i>
+									Bid Price
+								</a>
+								<a class="dropdown-item" href="/period">
+									<i class="far fa-clock mr-2 text-center" style="width: 20px"></i>
+									Project Period
+								</a>
+								<a class="dropdown-item" href="/timeSetting">
+									<i class="far fa-clock mr-2 text-center" style="width: 20px"></i>
+									Time Setting
+								</a>
+								<a class="dropdown-item" href="/tcats">
+									<i class="fas fa-sitemap mr-2 text-center" style="width: 20px"></i>
+									Template Categories
+								</a>
+								<a class="dropdown-item" href="/temp">
+									<i class="fas fa-list-ul mr-2 text-center" style="width: 20px"></i>
+									Templates
+								</a>
+								<a class="dropdown-item" href="/passChange">
+									<i class="fas fa-user-lock mr-2 text-center" style="width: 20px"></i>
+									Change Password
+								</a>
+								<a class="dropdown-item" href="/skills">
+									<i class="fas fa-cog mr-2 text-center" style="width: 20px"></i>
+									More Settings
+								</a>
+								<a class="dropdown-item" href="#">
+									<i class="fas fa-video mr-2 text-center" style="width: 20px"></i>
+									Demo Video
+								</a>
+								<a class="dropdown-item" href="/guide">
+									<i class="fas fa-book mr-2 text-center" style="width: 20px"></i>
+									AutoBids Guide
+								</a>
+								<a class="dropdown-item" href="/logout">
+									<i class="fas fa-sign-out-alt mr-2 text-center" style="width: 20px"></i>
+									Logout
+								</a>
+							</div>
+						</li>
+					</ul>
+				</nav>
+
+				<div class="container-fluid d-flex flex-wrap"></div>
+				<div class="container-fluid d-flex flex-wrap mb-2">
+					<div class="admin-alert w-100" data-code="onboarding-welcome">
+						<div class="alert-success alert-dismissible fade show p-0" style="padding-top: 5px; margin-bottom: 5px;  background: rgb(53,27,49);
+background: linear-gradient(90deg, rgba(53,27,49,1) 0%, rgba(102,29,58,1) 100%); color: white !important;"
+							!important " role=" alert">
+							<div class="px-3" style="padding-top: 10px; margin-bottom: 5px;">
+								<h4 class="alert-heading mt-3">Welcome to AutoBids!</h4>
+								<p style="font-size: 17px;" class="mb-2">Please note your AutoBids username is: <strong>
+										<%= user.username %>
+									</strong></p>
+								<p class="mb-2"><a href="#"
+										style="color: inherit;font-weight: 700;text-decoration: underline;">Click here
+										to watch complete demo video of AutoBids</a></p>
+								<p class="mb-0">Your 5-days free trial subscription has started.</p>
+								<p class="mb-0"><strong>Click show more to view contact details.</strong></p>
+							</div>
+							<div class="mb-0 px-3 pb-3 " style="background: none; /* background: -moz-linear-gradient(180deg, #d2f4e8 0%, #0f6848 100%); */
+				/* background: -webkit-linear-gradient(180deg, #d2f4e8 0%, #0f6848 100%); */
+				/* background: linear-gradient(180deg, #d2f4e8 0%, #0f6848 100%); */ ">
+								<div>
+									<p class="mb-3">Use this free trial period to explore all the features of AutoBids.
+									</p>
+									<p class="mb-0">Follow these three important steps for getting started and making
+										the most of your AutoBids experience:</p>
+									<p class="mb-0 ml-3"><strong><a href="https://appbidman.co/skills.php"
+												style="color: inherit">1- Select project skills</a></strong> to stay
+										notified with newly posted projects on which you love to work.</p>
+									<p class="mb-0 ml-3"><strong><a href="https://appbidman.co/templates.php"
+												style="color: inherit">2- Write awesome proposals</a></strong> to take
+										full advantage of quick and auto bidding using AutoBids.</p>
+									<p class="mb-3 ml-3"><strong><a href="https://appbidman.co/autobid.php"
+												style="color: inherit">3- Start Autobidding</a></strong> and let
+										AutoBids place bid on newly posted projects within seconds.</p>
+									<p class="mb-0">For contact detail verification, queries or payment information,
+										please contact us at:</p>
+									<p class="mb-0 ml-3">• Whatsapp: <strong><a href=""
+												style="color: inherit; display: inline-block;">
+												<%= adminPhone %>
+											</a>, <a href=""
+												style="color: inherit; display: inline-block;"></a></strong>
+									</p>
+									<p class="mb-0 ml-3">• Email: <strong>
+											< <a href="mailto:<%= adminEmail %>"
+												style="color: inherit; display: inline-block;">
+												<%= adminEmail %>
+													</a>
+										</strong></p>
+									<p class="mb-0 ml-3">
+										• Skype:
+										<strong>
+											<%= adminSkype %>
+										</strong>
+									</p>
+									<p class="mb-3 ml-3">
+										• Telegram:
+										<strong>
+											<a style="color: inherit; display: inline-block;">
+												<%= adminTelegram %>
+											</a>
+										</strong>
+									</p>
+									<p class="mb-2"><a href="https://appbidman.co/guide.php"
+											style="color: inherit">Click here to read guide to help understand
+											AutoBids</a></p>
+									<p class="mb-0">Happy bidding</p>
+								</div>
+								
+							</div>
+							<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+								<span aria-hidden="true">×</span>
+							</button>
+						</div>
+					</div>
+				</div>
+				<div class="container-fluid">
+					<div class="p-3 mb-3 text-white rounded shadow-sm" style="background-color: #058579">
+						<p class="mb-1">You currently have a limit of 50 bids. But don't worry, by verifying your
+							contact details, you can unlock 500 bids! 🚀</p>
+						<p class="mb-1">It's simple, just contact us at any of these:</p>
+						<div class="row">
+							<div class="col-xl-4 col-lg-6 col-md-8 order-md-0 order-lg-0">
+								<p class="mb-0 ml-3" style="font-size: 14px">• Whatsapp: <a
+										href="" style="color: inherit">
+										<%= adminPhone %>
+									</a>
+								</p>
+							</div>
+							<div class="col-xl-4 col-lg-6 col-md-8 order-md-2 order-lg-0">
+								<p class="mb-0 ml-3" style="font-size: 14px">• Email: <a href="mailto:<%= adminEmail %>"
+										style="color: inherit">
+										<%= adminEmail %>
+									</a></p>
+							</div>
+							<div class="col-xl-2 col-lg-6 col-md-4 order-md-3 order-lg-0">
+								<p class="mb-0 ml-3" style="font-size: 14px"></p>
+							</div>
+
+							<div class="col-xl-2 col-lg-6 col-md-4 order-md-1 order-lg-0">
+								<p class="mb-0 ml-3" style="font-size: 14px">• Telegram: <a href=""
+										style="color: inherit">
+										<%= adminTelegram %>
+									</a></p>
+							</div>
+							<div class="col-xl-2 col-lg-6 col-md-4 order-md-1 order-lg-0">
+								<p class="mb-0 ml-3" style="font-size: 14px">• Skype: <a href="" style="color: inherit">
+										<%= adminSkype %>
+									</a></p>
+							</div>
+						</div>
+						<p class="mt-1 mb-0">Bonus: Get FREE AI bids when you contact us! 🎉</p>
+					</div>
+				</div>
+
+				<div class="container-fluid">
+
+
+					<div class="card shadow mb-4">
+						<div class="card-header py-3 bg-ai"style="background-color: #058579 !important;background-image: linear-gradient(180deg, #058579 10%, #058579 100%), url(https://cdn.bidman.co/images/ai_bg.png);">
+							<h4 class="h4 m-0 text-white text-center" style="font-weight: 600;line-height: 1.4;background-color: #058579">
+								Introducing the Revolutionary AutoBids Feature: <u>AutoBids AI</u><br>Automate Your
+								Freelancer Bidding with ChatGPT!</h4>
+						</div>
+						<div class="card-body" style="color: #3b4168;font-weight: 600; height: 100%">
+							<p class="mb-2">We are thrilled to announce the launch of a groundbreaking new feature of
+								AutoBids. With this latest update, AutoBids harnesses the power of ChatGPT to streamline
+								and automate the bidding process for freelancers. AutoBids will generate customized bids
+								for you effortlessly.</p>
+
+								<p style="color: #1f8f36" class="mb-2">Users who are on trial period are eligible for free
+									50 bid credits to explore and experience the power of AutoBids AI.
+								</p>
+								<a id="claimButton" class="btn btn-success bg-ai blink mb-2" style="background-image: linear-gradient(180deg, #058579 10%, #058579 100%), url(https://cdn.bidman.co/images/ai_bg.png); color: white;">Claim your free 50 AI bids</a>
+							
+							<div class="mb-3">
+								<div class="p-3 text-white d-inline-block rounded shadow-sm"
+									style="background-color: #058579; font-size: 14px">
+									<p class="mb-0">Please verify your contact details to claim free bids.</p>
+									<p class="mb-0">Contact details:</p>
+									<p class="mb-0 ml-3">• Whatsapp: <a href=""
+											style="color: inherit">
+											<%= adminPhone %>
+										</a>, <a href="" style="color: inherit"></a></p>
+									<p class="mb-0 ml-3">• Email: <a href="mailto:<%= adminEmail %>"
+											style="color: inherit">
+											<%= adminEmail %>
+										</a></p>
+									<p class="mb-0 ml-3"></p>
+									<p class="mb-0 ml-3">• Telegram: <a href="" style="color: inherit">
+											<%= adminTelegram%>
+										</a></p>
+								</div>
+							</div>
+							<p class="mb-0" style="color: #1f8f36"><u>How does it work?</u></p>
+							<p class="mb-2">AutoBids empowers users to create personalized bid templates using wildcards
+								such as "Client's Name," "Job Skills," "Matching Job Skills," "Client's Country," and
+								"Portfolio Links." These templates are skill-based, allowing you to create multiple and
+								distinct templates for each set of skills you possess.</p>
+							<p class="mb-2">AutoBids automatically fills in the project's title, skills, and description
+								for you. It then combines this information with your customized bid template and passes
+								it to ChatGPT, which generates a compelling bid on your behalf. This saves you valuable
+								time and enables you to submit professional and tailored bids effortlessly.</p>
+							<p>When you use all of your AI bids, AutoBids seamlessly reverts to the traditional method
+								of generating bids.</p>
+
+							<p class="mb-0" style="color: #1f8f36"><u>How to use?</u></p>
+							<p>To access this feature, users are required to purchase a bid package in addition to the
+								regular AutoBids subscription.</p>
+
+							<p class="mb-0" style="color: #1f8f36"><u>How to purchase?</u></p>
+							<p class="mb-2">We understand that every freelancer is unique, and that's why we offer a
+								diverse selection of packages for you to choose from. Whether you're a professional or
+								just starting out on your freelancing journey, we have the perfect bid package to cater
+								to your specific requirements.</p>
+							<p class="mb-2">Remember, you have the flexibility to purchase additional bid packages at
+								any time, ensuring you have the resources you need to succeed.</p>
+							<p>Contact us to purchase bid package.</p>
+
+							<p class="mb-0" style="color: #1f8f36"><u>How to choose a package?</u></p>
+							<p class="mb-2">Please be aware that AutoBids counts every bid it generates, even if it is
+								not successfully placed on the freelancer platform. There are various reasons why a bid
+								may not be placed, such as freelancer restrictions due to pending awarded projects or a
+								lack of available bids.</p>
+							<p>To help you make an informed decision when purchasing a bid package, we provide the
+								option for you to contact us and inquire about the number of bids generated by AutoBids
+								in the last 30 days. This way, you can assess your bidding needs and select the most
+								suitable package for your requirements.</p>
+
+							<div id="pricing"></div>
+							<div class="text-center d-flex justify-content-center"
+								style="position: sticky; bottom: 5px; top: 5px; margin-bottom: 5px;z-index: 1;">
+								<a href="#pricing" class="pricing-heading h5 mb-0 text-center d-inline-block shadow"
+									style="background: white; color: #FE6500;font-weight: 600;padding: 5px 10px; border: 1px solid #ddd; border-radius: 5px;">Pricing
+									Plans</a>
+							</div>
+							<div id="popupModal" class="modal">
+								<div class="modal-content">
+									<span class="close">&times;</span>
+									<h2>Enter Your Information</h2>
+									<form id="infoForm">
+										<label for="phone">Phone Number:</label>
+										<input type="text" id="phone" name="phone" required><br><br>
+										<label for="email">Email:</label>
+										<input type="email" id="email" name="email" required><br><br>
+										<button type="submit">Submit</button>
+									</form>
+								</div>
+							</div>
+							<div class="row pricing-row mb-2">
+								<div class="col-lg-1 col-xl-1 col-md-1 col-sm-1 col-1">
+									<div class="pricing-body" style="border-top: 5px solid #e16060;">
+										<p class="pricing-title" style="color: #d51b1b">Starter</p>
+										<p class="pricing-bids">500 bids</p>
+										<p class="pricing-price">
+											<% if (pricing && pricing[0] && pricing[0].starterAmount) { %>
+												<%= pricing[0].starterAmount %>
+											<% } else { %>
+												N/A
+											<% } %>
+										</p>
+										<a href="<%= pricing && pricing[0] && pricing[0].starterLink ? pricing[0].starterLink : '#' %>"> <button style="background: rgb(53,27,49);
+											background: linear-gradient(90deg, rgba(53,27,49,1) 0%, rgba(102,29,58,1) 100%);!important" type="button"
+											class="btn btn-primary">Get Now</button></a>
+									</div>
+								</div>
+								<div class="col-lg-1 col-xl-1 col-md-1 col-sm-1 col-1">
+									<div class="pricing-body" style="border-top: 5px solid #eb8f4d;">
+										<p class="pricing-title" style="color: #e16e1c">Essential</p>
+										<p class="pricing-bids">1,000 bids</p>
+										<p class="pricing-price">
+
+											<% if (pricing && pricing[0] && pricing[0].essentialAmount) { %>
+												<%= pricing[0].essentialAmount %>
+											<% } else { %>
+												N/A
+											<% } %>
+
+										</p>
+										<a href="<%= pricing && pricing[0] && pricing[0].essentialLink ? pricing[0].essentialLink : '#'%>"> <button style="background: rgb(53,27,49);
+											background: linear-gradient(90deg, rgba(53,27,49,1) 0%, rgba(102,29,58,1) 100%);!important" type="button"
+											class="btn btn-primary">Get Now</button></a>
+									</div>
+								</div>
+								<div class="col-lg-1 col-xl-1 col-md-1 col-sm-1 col-1">
+									<div class="pricing-body" style="border-top: 5px solid #e5b451;">
+										<p class="pricing-title" style="color: #e19701">Basic</p>
+										<p class="pricing-bids">1,500 bids</p>
+										<p class="pricing-price">
+											<% if (pricing && pricing[0] && pricing[0].basicAmount) { %>
+												<%= pricing[0].basicAmount %>
+											<% } else { %>
+												N/A
+											<% } %>
+										</p>
+										<a href="<%= pricing && pricing[0] && pricing[0].basicLink ? pricing[0].basicLink : '#'%>"> <button style="background: rgb(53,27,49);
+											background: linear-gradient(90deg, rgba(53,27,49,1) 0%, rgba(102,29,58,1) 100%);!important" type="button"
+											class="btn btn-primary">Get Now</button></a>
+									</div>
+								</div>
+								<div class="col-lg-1 col-xl-1 col-md-1 col-sm-1 col-1">
+									<div class="pricing-body" style="border-top: 5px solid #97e342;">
+										<p class="pricing-title" style="color: #64b708">Plus</p>
+										<p class="pricing-bids">2,000 bids</p>
+										<p class="pricing-price">
+											<% if (pricing && pricing[0] && pricing[0].plusAmount) { %>
+												<%= pricing[0].plusAmount %>
+											<% } else { %>
+												N/A
+											<% } %>
+										</p>
+										<a href="<%= pricing && pricing[0] && pricing[0].plusLink ? pricing[0].plusLink : '#'%>"> <button style="background: rgb(53,27,49);
+											background: linear-gradient(90deg, rgba(53,27,49,1) 0%, rgba(102,29,58,1) 100%);!important" type="button"
+											class="btn btn-primary">Get Now</button></a>
+									</div>
+								</div>
+								<div class="col-lg-1 col-xl-1 col-md-1 col-sm-1 col-1">
+									<div class="pricing-body" style="border-top: 5px solid #51c74a;">
+										<p class="pricing-title" style="color: #17cd0c">Pro</p>
+										<p class="pricing-bids">2,500 bids</p>
+										<p class="pricing-price">
+											<% if (pricing && pricing[0] && pricing[0].proAmount) { %>
+												<%= pricing[0].proAmount %>
+											<% } else { %>
+												N/A
+											<% } %>
+										</p>
+										<a href="<%= pricing && pricing[0] && pricing[0].proLink ? pricing[0].proLink : '#'%>"> <button style="background: rgb(53,27,49);
+											background: linear-gradient(90deg, rgba(53,27,49,1) 0%, rgba(102,29,58,1) 100%);!important" type="button"
+											class="btn btn-primary">Get Now</button></a>
+									</div>
+								</div>
+								<div class="col-lg-1 col-xl-1 col-md-1 col-sm-1 col-1">
+									<div class="pricing-body" style="border-top: 5px solid #23d9a7;">
+										<p class="pricing-title" style="color: #04c38e">Premium</p>
+										<p class="pricing-bids">3,000 bids</p>
+										<p class="pricing-price">
+											<% if (pricing && pricing[0] && pricing[0].premiumAmount) { %>
+												<%= pricing[0].premiumAmount %>
+											<% } else { %>
+												N/A
+											<% } %>
+										</p>
+										<a href="<%= pricing && pricing[0] && pricing[0].premiumLink ? pricing[0].premiumLink : '#'%>"> <button style="background: rgb(53,27,49);
+											background: linear-gradient(90deg, rgba(53,27,49,1) 0%, rgba(102,29,58,1) 100%);!important" type="button"
+											class="btn btn-primary">Get Now</button></a>
+									</div>
+								</div>
+								<div class="col-lg-1 col-xl-1 col-md-1 col-sm-1 col-1">
+									<div class="pricing-body" style="border-top: 5px solid #42a2db;">
+										<p class="pricing-title" style="color: #1b9fed">Deluxe</p>
+										<p class="pricing-bids">4,000 bids</p>
+										<p class="pricing-price">
+											<% if (pricing && pricing[0] && pricing[0].deluxeAmount) { %>
+												<%= pricing[0].deluxeAmount %>
+											<% } else { %>
+												N/A
+											<% } %>
+										</p>
+										<a href="<%= pricing && pricing[0] && pricing[0].deluxeLink ? pricing[0].deluxeLink : '#'%>">> <button style="background: rgb(53,27,49);
+											background: linear-gradient(90deg, rgba(53,27,49,1) 0%, rgba(102,29,58,1) 100%);!important" type="button"
+											class="btn btn-primary">Get Now</button></a>
+									</div>
+								</div>
+								<div class="col-lg-1 col-xl-1 col-md-1 col-sm-1 col-1">
+									<div class="pricing-body" style="border-top: 5px solid #7f63d5;">
+										<p class="pricing-title" style="color: #734aef">Elite</p>
+										<p class="pricing-bids">5,000 bids</p>
+										<p class="pricing-price">
+											<% if (pricing && pricing[0] && pricing[0].eliteAmount) { %>
+												<%= pricing[0].eliteAmount %>
+											<% } else { %>
+												N/A
+											<% } %>
+										</p>
+										<a href="<%= pricing && pricing[0] && pricing[0].eliteLink ? pricing[0].eliteLink : '#'%>"> <button style="background: rgb(53,27,49);
+											background: linear-gradient(90deg, rgba(53,27,49,1) 0%, rgba(102,29,58,1) 100%);!important" type="button"
+											class="btn btn-primary">Get Now</button></a>
+									</div>
+								</div>
+								<div class="col-lg-1 col-xl-1 col-md-1 col-sm-1 col-1">
+									<div class="pricing-body last-child" style="border-top: 5px solid #e553b8;">
+										<p class="pricing-title" style="color: #e715a6">Ultimate</p>
+										<p class="pricing-bids">6,000 bids</p>
+										<p class="pricing-price">
+											<% if (pricing && pricing[0] && pricing[0].ultimateAmount) { %>
+												<%= pricing[0].ultimateAmount %>
+											<% } else { %>
+												N/A
+											<% } %>
+										</p>
+										<a href="<%= pricing && pricing[0] && pricing[0].ultimateLink ? pricing[0].ultimateLink : '#'%>"> <button style="background: rgb(53,27,49);
+											background: linear-gradient(90deg, rgba(53,27,49,1) 0%, rgba(102,29,58,1) 100%);!important" type="button"
+											class="btn btn-primary">Get Now</button></a>
+									</div>
+								</div>
+							</div>
+
+							<p>Please note that all purchases are valid for 1 month only, any unused bids will not carry
+								forward to your next purchase and all payments will be made in advance.</p>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script src="/assets/jquery.min.js"></script>
+	<script src="/assets/bootstrap.bundle.min.js"></script>
+	<script src="/assets/jquery.easing.min.js"></script>
+	<script src="/assets/sb-admin-2.min.js?v=6"></script>
+	<script type="text/javascript">
+		$(document).ready(function () {
+			$('.pricing-heading').click(function (e) {
+				e.preventDefault()
+				$('html, body').animate({
+					scrollTop: $('#pricing').offset().top - 20
+				}, 700);
+			})
+		})
+	</script>
+	<script>
+		document.addEventListener("DOMContentLoaded", function () {
+    var modal = document.getElementById("popupModal");
+    var btn = document.getElementById("claimButton");
+    var span = document.getElementsByClassName("close")[0];
+
+    // When the user clicks the button, open the modal
+    btn.onclick = function () {
+        modal.style.display = "block";
+    }
+
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function () {
+        modal.style.display = "none";
+    }
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function (event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+
+    // Submit form
+    document.getElementById("infoForm").addEventListener("submit", function (event) {
+        event.preventDefault();
+        var phone = document.getElementById("phone").value;
+        var email = document.getElementById("email").value;
+
+        // Axios call
+        axios.post('/getBonus', {
+            phone: phone,
+            email: email
+        })
+        .then(function (response) {
+            // Request was successful
+            console.log(response.data); // Log the response from the server
+            modal.style.display = "none"; // Close the modal after submission
+            showToast("Bonus Availed", true); // Show success toast
+        })
+        .catch(function (error) {
+            // Request failed
+            console.error(error);
+            modal.style.display = "none";
+            showToast("Sorry, you already availed your Bonus", false); // Show error toast
+        });
+    });
+
+    // Function to show toast (for demonstration, you can customize this)
+    function showToast(message, isSuccess) {
+        var toast = document.createElement("div");
+        toast.className = "toast";
+        toast.style.backgroundColor = isSuccess ? "green" : "red";
+        toast.innerText = message;
+        document.body.appendChild(toast);
+        setTimeout(function () {
+            toast.remove();
+        }, 3000);
+    }
+});
+	</script>
+</body>
+
+</html>

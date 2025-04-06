@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>Total Users | AutoBids</title>
+
+    <link href="https://cdn.bidman.co/app_assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.bidman.co/app_assets/css/sb-admin-2.min.css?v=11" rel="stylesheet">
+    <link href="https://cdn.bidman.co/app_assets/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+    <!-- jQuery -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<!-- Bootstrap JS -->
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <style type="text/css">
+        label {
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 3px;
+            color: #555;
+        }
+        /* Switch container */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+    margin-right: 10px;
+}
+
+/* Hide the default HTML checkbox */
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+/* Slider styling */
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: red;
+    transition: .4s;
+    border-radius: 34px;
+}
+
+/* Before slider */
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    border-radius: 50%;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: .4s;
+}
+
+/* Change slider color and position when checked */
+input:checked + .slider {
+    background-color: green;
+}
+
+/* Move the slider to the right when checked */
+input:checked + .slider:before {
+    transform: translateX(26px);
+}
+button {
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+/* View button styles */
+.view-user-btn {
+    background-color: #007bff; /* Blue background */
+}
+
+.view-user-btn:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+    transform: scale(1.05); /* Slightly enlarge on hover */
+}
+
+.view-user-btn:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(38, 143, 255, 0.5); /* Blue outline on focus */
+}
+
+/* Reset Password button styles */
+.reset-user-btn {
+    background-color: #dc3545; /* Red background */
+}
+
+.reset-user-btn:hover {
+    background-color: #c82333; /* Darker red on hover */
+    transform: scale(1.05); /* Slightly enlarge on hover */
+}
+
+.reset-user-btn:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(220, 53, 69, 0.5); /* Red outline on focus */
+}
+
+/* Reset Password button styles */
+.del-user-btn {
+    background-color: #dc3545; /* Red background */
+}
+
+.del-user-btn:hover {
+    background-color: #c82333; /* Darker red on hover */
+    transform: scale(1.05); /* Slightly enlarge on hover */
+}
+
+.del-user-btn:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(220, 53, 69, 0.5); /* Red outline on focus */
+}
+scrolling-text {
+    display: inline-block;
+    white-space: nowrap;
+    overflow: hidden;
+    box-sizing: border-box;
+    animation: scroll-text 10s linear infinite;
+}
+
+@keyframes scroll-text {
+    0% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+    </style>
+</head>
+
+<body id="page-top" class="sidebar-toggled">
+    <div id="wrapper">
+        <div id="content-wrapper" class="d-flex flex-column">
+            <div id="content">
+                <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+                    <a class="navbar-brand position-relative" href="/admin/dashboard">
+                        <h2>AUTOBIDS</h2>
+                    </a>
+                    <ul class="navbar-nav">
+						<li class="nav-item">
+							<a class="nav-link text-dark" style="font-size: 15px;" href="/admin/blockUsers"
+								role="button">
+								<span class="d-none d-sm-block">&nbsp;</span>
+								<span style="font-weight: bold; font-size: 16px; color: #18557F;">BlockUsers</span>
+							</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link text-dark" style="font-size: 15px;" href="/admin/bidsAllowed"
+								role="button">
+								<span class="d-none d-sm-block">&nbsp;</span>
+								<span style="font-weight: bold; font-size: 16px; color: #18557F;">BidsAllowed</span>
+							</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link text-dark" style="font-size: 15px;" href="/admin/editSubscription"
+								role="button">
+								<span class="d-none d-sm-block">&nbsp;</span>
+								<span style="font-weight: bold; font-size: 16px; color: #18557F;">Subscription Type</span>
+							</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link text-dark" style="font-size: 15px;" href="/admin/editDates"
+								role="button">
+								<span class="d-none d-sm-block">&nbsp;</span>
+								<span style="font-weight: bold; font-size: 16px; color: #18557F;">Subscription Date</span>
+							</a>
+						</li>
+					</ul>
+                </nav>
+
+                <div class="container-fluid">
+                    <div class="card shadow">
+                        <div class="card-header py-3 d-flex align-items-center">
+                          
+                            <h5 class="h5 m-0 text-primary">Total Users</h5>
+                        </div>
+                        <div id="reset-password-container" style="display:none; background-color: rgb(250, 202, 202);">
+                            <p style="color: rgb(18, 170, 240);"><strong>New Password:</strong> <strong><span id="new-password-display" class="scrolling-text" style="color: black; padding: 10px;"></span></strong></p>
+                            <button id="copy-password-btn" style="color: white; background-color: green;">Copy Password</button>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Username</th>
+                                            <th>Age</th>
+                                            <th>Gender</th>
+                                            <th>Email</th>
+                                            <th>Phone</th>
+                                            <th>Bids Made</th>
+                                            <th>Delete</th>
+                                            <th>Password</th>
+                                            <th>Ai Bidding</th>
+
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <% users.forEach((user, index)=> { %>
+                                            <tr>
+                                                <td>
+                                                    <%= index + 1 %>
+                                                </td>
+                                                <td>
+                                                    <%= user.username %>
+                                                </td>
+                                                <td>
+                                                    <%= user.age %>
+                                                </td>
+                                                <td>
+                                                    <%= user.gender %>
+                                                </td>
+                                                <td>
+                                                    <%= user.email %>
+                                                </td>
+                                                <td>
+                                                    <%= user.phone %>
+                                                </td>
+                                                <td>
+                                                    <button  class="view-user-btn" data-user-id="<%= user._id %>">View</button>
+                                                   
+                                                </td>
+                                                <td>
+                                                    <button  class="del-user-btn" data-user-id="<%= user._id %>">X</button>
+                                                </td>
+                                                <td>
+                                                    <button  class="reset-user-btn" data-user-id="<%= user._id %>">Reset Password</button>
+                                                </td>
+                                                <td>
+                                                    <span class="switch-container">
+                                                        <b> <span class="switch-text" style="color: red;">
+                                                           OFF
+                                                        </span></b>
+                                                        <label class="switch">
+                                                            <input type="checkbox" class="toggle-switch" <%= user.aiBid ? 'checked' : '' %> data-user-id="<%= user._id %>">
+                                                            <span class="slider"></span>
+                                                        </label>
+                                                        <b> <span class="switch-text" style="color: green;">
+                                                            ON
+                                                        </span></b>
+                                                    </span>
+                                                </td>
+
+                                            </tr>
+                                            <% }); %>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    <!-- Modal for user details -->
+<div class="modal fade" id="userModal" tabindex="-1" role="dialog" aria-labelledby="userModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="userModalLabel">User Details</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <h6>Projects:</h6> <!-- Header for the project table -->
+                <!-- Table to display project details -->
+                <table class="table" id="projectData">
+                    <thead>
+                        <tr>
+                            <th>No</th> <!-- Number header -->
+                            <th>Project Title</th>
+                            <th>Bid Amount</th>
+                            <th>User Name</th>
+                            <th>Time</th>
+                        </tr>
+                    </thead>
+                    <!-- Project data will be dynamically inserted here -->
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+                <div id="loadingSpinner" style="display: none; text-align: center; margin-top: 20px;">
+                    <div class="spinner-border text-primary" role="status">
+                        <span class="sr-only">Loading...</span>
+                    </div>
+                    <span>Loading...</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/assets/jquery.min.js"></script>
+    <script src="/assets/bootstrap.bundle.min.js"></script>
+    <script src="/assets/jquery.easing.min.js"></script>
+    <script src="/assets/sb-admin-2.min.js?v=6"></script>
+    <script src="/assets/jquery.dataTables.min.js"></script>
+    <script src="/assets/dataTables.bootstrap4.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            // Initialize DataTable with options
+            var dataTable = $('#dataTable').DataTable({
+                "paging": true, // Enable pagination
+                "searching": true, // Enable search
+                "ordering": true, // Enable sorting
+                "info": true // Show information
+            });
+
+            // Show loading spinner when search is initiated
+            $('#dataTable_filter input').on('keyup', function () {
+                $('#loadingSpinner').show();
+            });
+
+            // Hide loading spinner when search is completed
+            $('#dataTable').on('draw.dt', function () {
+                $('#loadingSpinner').hide();
+            });
+        });
+    </script>
+</body>
+<!-- JavaScript code -->
+<script>
+ $(document).ready(function () {
+    // Click event handler for the "View" button
+    $('#dataTable').on('click', '.view-user-btn', function () {
+        // Get the user ID from the button's data attribute
+        var userId = $(this).data('user-id');
+
+        // Send AJAX request to backend to fetch user and project data
+        $.ajax({
+            url: '/admin/get-user-bids', // Replace with your backend endpoint
+            method: 'POST',
+            data: { userId: userId },
+            success: function(response) {
+                // Clear previous data
+                $('#projectData').empty();
+
+                // Iterate over the received projects and populate the table
+                response.userProjects.forEach(function(project, index) {
+                    // Format time to display in a readable format (you can adjust the format as needed)
+                    var formattedTime = new Date(project.time).toLocaleString();
+
+                    // Create a table row for the project
+                    var row = '<tr>' +
+                        '<td>' + (index + 1) + '</td>' + // Print number with each record
+                        '<td>' + project.projectTitle + '</td>' +
+                        '<td>' + project.bidAmount + '</td>' +
+                        '<td>' + project.userName + '</td>' +
+                        '<td>' + formattedTime + '</td>' +
+                        '</tr>';
+
+                    // Append the row to the table body
+                    $('#projectData').append(row);
+                });
+
+                // Show the modal
+                $('#userModal').modal('show');
+            },
+            error: function (xhr, status, error) {
+                console.error(error);
+            }
+        });
+    });
+});
+</script>
+<script>
+    $(document).ready(function() {
+        $('.reset-user-btn').click(function() {
+            var userId = $(this).data('user-id');
+
+            $.ajax({
+                url: '/admin/resetPassword',
+                type: 'POST',
+                data: { userId: userId },
+                success: function(response) {
+                    // Handle success - show success message and new password
+                    alert(response.message);
+                    
+                    // Display new password and copy button
+                    $('#reset-password-container').show();
+                    $('#new-password-display').text(response.newPassword);
+                },
+                error: function(xhr, status, error) {
+                    // Handle error - show error message
+                    var errorMessage = xhr.responseJSON ? xhr.responseJSON.message : 'Error resetting password.';
+                    alert(errorMessage);
+                }
+            });
+        });
+
+        // Copy password to clipboard
+        $('#copy-password-btn').click(function() {
+            var passwordText = $('#new-password-display').text();
+            if (passwordText) {
+                // Create a temporary input to copy the text
+                var tempInput = $('<input>');
+                $('body').append(tempInput);
+                tempInput.val(passwordText).select();
+                document.execCommand('copy');
+                tempInput.remove();
+                alert('Password copied to clipboard!');
+                setTimeout(function() {
+                    location.reload();
+                }, 3000);
+            }
+        });
+    });
+</script>
+<script>
+    $(document).ready(function() {
+        $('.del-user-btn').click(function() {
+            var userId = $(this).data('user-id');
+
+            $.ajax({
+                url: '/deleteuserbyid',
+                type: 'POST',
+                data: { id: userId },
+                success: function(response) {
+                    // Handle success - show success message and new password
+                    alert(response?.message);
+                    window.location.reload();
+                },
+                error: function(xhr, status, error) {
+                    // Handle error - show error message
+                    var errorMessage = xhr.responseJSON ? xhr.responseJSON.message : 'User not Deleted.';
+                    alert(errorMessage);
+                }
+            });
+        });
+    });
+</script>
+     <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const toggleSwitches = document.querySelectorAll('.toggle-switch');
+        
+            toggleSwitches.forEach(toggle => {
+                toggle.addEventListener('change', (event) => {
+                    const isChecked = event.target.checked;
+                    const userId = event.target.getAttribute('data-user-id');
+                    const status = isChecked;
+        
+                    fetch('/admin/chatGptBid', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            // Add CSRF token if needed
+                        },
+                        body: JSON.stringify({ userId: userId, aiBid: status })
+                    })
+                    .then(response => response.json())
+                    
+                });
+            });
+        });
+        </script>
+  
+</html>

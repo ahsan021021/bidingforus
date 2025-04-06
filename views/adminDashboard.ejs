@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<title>Dashboard | AutoBids</title>
+
+	<meta property="og:url" content="https://AutoBids.co/" />
+	<meta property="og:type" content="website" />
+	<meta property="og:title" content="AutoBids" />
+	<meta property="og:description" content="AutoBids is a tool which gives you upper hand to other freelancers" />
+	<meta property="og:image" content="https://cdn.bidman.co/images/logo.png" />
+
+	<!-- <link rel="icon" href="https://cdn.bidman.co/images/favicon/favicon-32x32.png" sizes="32x32">
+	<link rel="icon" href="https://cdn.bidman.co/images/favicon/favicon-57x57.png" sizes="57x57">
+	<link rel="icon" href="https://cdn.bidman.co/images/favicon/favicon-76x76.png" sizes="76x76">
+	<link rel="icon" href="https://cdn.bidman.co/images/favicon/favicon-96x96.png" sizes="96x96">
+	<link rel="icon" href="https://cdn.bidman.co/images/favicon/favicon-128x128.png" sizes="128x128">
+	<link rel="icon" href="https://cdn.bidman.co/images/favicon/favicon-192x192.png" sizes="192x192">
+	<link rel="icon" href="https://cdn.bidman.co/images/favicon/favicon-228x228.png" sizes="228x228">
+	<link rel="shortcut icon" sizes="196x196" href="https://cdn.bidman.co/images/favicon/favicon-196x196.png"> -->
+	<link rel="apple-touch-icon" href="https://cdn.bidman.co/images/favicon/favicon-120x120.png" sizes="120x120">
+	<link rel="apple-touch-icon" href="https://cdn.bidman.co/images/favicon/favicon-152x152.png" sizes="152x152">
+	<link rel="apple-touch-icon" href="https://cdn.bidman.co/images/favicon/favicon-180x180.png" sizes="180x180">
+	<meta name="theme-color" content="#012B46">
+	<meta name="msapplication-TileColor" content="#FFFFFF">
+	<meta name="msapplication-TileImage" content="https://cdn.bidman.co/images/favicon/favicon-144x144.png">
+
+	<link href="https://cdn.bidman.co/app_assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet"
+		type="text/css">
+	<link
+		href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+		rel="stylesheet">
+	<link href="https://cdn.bidman.co/app_assets/css/sb-admin-2.min.css?v=11" rel="stylesheet">
+	<link href="https://cdn.bidman.co/app_assets/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+	<style type="text/css">
+		label {
+			font-size: 14px;
+			font-weight: 600;
+			margin-bottom: 3px;
+			color: #555;
+		}
+	</style>
+</head>
+
+<body id="page-top" class="sidebar-toggled">
+	<div id="wrapper">
+
+		<div id="content-wrapper" class="d-flex flex-column">
+			<div id="content">
+
+
+				<nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+
+					<a class="navbar-brand position-relative" href="#">
+						<h2>AUTOBIDS</h2>
+					</a>
+
+					<ul class="navbar-nav">
+						<li class="nav-item">
+							<a class="nav-link text-dark" style="font-size: 15px;" href="/admin/blockUsers"
+								role="button">
+								<span class="d-none d-sm-block">&nbsp;</span>
+								<span style="font-weight: bold; font-size: 16px; color: #18557F;">BlockUsers</span>
+							</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link text-dark" style="font-size: 15px;" href="/admin/bidsAllowed"
+								role="button">
+								<span class="d-none d-sm-block">&nbsp;</span>
+								<span style="font-weight: bold; font-size: 16px; color: #18557F;">BidsAllowed</span>
+							</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link text-dark" style="font-size: 15px;" href="/admin/editSubscription"
+								role="button">
+								<span class="d-none d-sm-block">&nbsp;</span>
+								<span style="font-weight: bold; font-size: 16px; color: #18557F;">Subscription
+									Type</span>
+							</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link text-dark" style="font-size: 15px;" href="/admin/editDates"
+								role="button">
+								<span class="d-none d-sm-block">&nbsp;</span>
+								<span style="font-weight: bold; font-size: 16px; color: #18557F;">Subscription
+									Date</span>
+							</a>
+						</li>
+					</ul>
+
+					<ul class="navbar-nav ml-auto">
+						<li class="nav-item dropdown no-arrow">
+							<a class="nav-link dropdown-toggle" style="font-size: 15px;" href="#" id="userDropdown"
+								role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								<div class="d-none d-sm-block mr-sm-2 text-right">
+									<p class="text-gray-600 small m-0">
+										<%= user.username %>
+									</p>
+								</div>
+								<i class="fas fa-chevron-down mr-2 text-center text-dark"
+									style="width: 20px;top: -2px;position: relative;"></i>
+								<span class="position-relative">
+									<img class="img-profile rounded-circle"
+										src="<%= user.profilePicture ? user.profilePicture : 'https://cdn3.f-cdn.com/ppic/245304646/logo/75311776/profile_logo_75311776.jpg' %>">
+								</span>
+							</a>
+							<div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
+								aria-labelledby="userDropdown">
+							
+								<a class="dropdown-item" href="/admin/changeInfo">
+									<i class="fas fa-book mr-2 text-center" style="width: 20px"></i>
+									Change Information
+								</a>
+								<a class="dropdown-item" href="/admin/changePricing">
+									<i class="fas fa-book mr-2 text-center" style="width: 20px"></i>
+									Change Pricing
+								</a>
+								<a class="dropdown-item" href="/admin/passChange">
+									<i class="fas fa-book mr-2 text-center" style="width: 20px"></i>
+									Change Password
+								</a>
+								<a class="dropdown-item" href="/admin/logout">
+									<i class="fas fa-sign-out-alt mr-2 text-center" style="width: 20px"></i>
+									Logout
+								</a>
+							</div>
+						</li>
+					</ul>
+				</nav>
+
+				<div class="container-fluid">
+
+
+
+					<div class="card shadow">
+						<div class="card-header py-3 d-flex align-items-center">
+							<h5 class="h5 m-0 text-primary">Dashboard</h5>
+						</div>
+
+						<div class="container">
+							<div class="row">
+								<div class="col-md-4 mb-3 mt-3">
+									<div class="card">
+										<div class="card-body">
+											<div class="template-skill-box">
+												<p class="text-primary font-weight-bold mb-0">Total Users</p>
+												<div>
+													<b>
+														<%=userlength %>
+													</b> Users
+												</div>
+												<a href="/admin/totalUsers"> <button type="button"
+														class="generate-bid-template-skill btn btn-primary btn-sm mt-2 mb-2"
+														data-id="1087" data-name="API" data-toggle="modal"
+														data-target="#bidModal">View</button></a>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="col-md-4 mb-3 mt-3">
+									<div class="card">
+										<div class="card-body">
+											<div class="template-skill-box">
+												<p class="text-primary font-weight-bold mb-0">Users On Trial Period</p>
+												<div>
+													<b>
+														<%=userOnTrialLength %>
+													</b> Users
+												</div>
+												<a href="/admin/trialUsers"> <button type="button"
+														class="generate-bid-template-skill btn btn-primary btn-sm mt-2 mb-2"
+														data-id="1087" data-name="API" data-toggle="modal"
+														data-target="#bidModal">View</button></a>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="col-md-4 mb-3 mt-3">
+									<div class="card">
+										<div class="card-body">
+											<div class="template-skill-box">
+												<p class="text-primary font-weight-bold mb-0">Users On Monthly
+													Subscription</p>
+												<div>
+													<b>
+														<%=userOnMonthlyLength %>
+													</b> Users
+												</div>
+												<a href="/admin/monthlyUsers"> <button type="button"
+														class="generate-bid-template-skill btn btn-primary btn-sm mt-2 mb-2"
+														data-id="1087" data-name="API" data-toggle="modal"
+														data-target="#bidModal">View</button></a>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-4 mb-3">
+									<div class="card">
+										<div class="card-body">
+											<div class="template-skill-box">
+												<p class="text-primary font-weight-bold mb-0">Users On Semi-Annual
+													Subscription</p>
+												<div>
+													<b>
+														<%=userOnSemiAnnualLength%>
+													</b> Users
+												</div>
+												<a href="/admin/semiAnnualUsers"> <button type="button"
+														class="generate-bid-template-skill btn btn-primary btn-sm mt-2 mb-2"
+														data-id="1087" data-name="API" data-toggle="modal"
+														data-target="#bidModal">View</button></a>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="col-md-4 mb-3">
+									<div class="card">
+										<div class="card-body">
+											<div class="template-skill-box">
+												<p class="text-primary font-weight-bold mb-0">Users On Annual
+													Subscription</p>
+												<div>
+													<b>
+														<%=userOnAnnualLength %>
+													</b> Users
+												</div>
+												<a href="/admin/annualUsers"> <button type="button"
+														class="generate-bid-template-skill btn btn-primary btn-sm mt-2 mb-2"
+														data-id="1087" data-name="API" data-toggle="modal"
+														data-target="#bidModal">View</button></a>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="col-md-4 mb-3">
+									<div class="card">
+										<div class="card-body">
+											<div class="template-skill-box">
+												<p class="text-primary font-weight-bold mb-0">Users Not-Subscribed</p>
+												<div>
+													<b>
+														<%=userOnNotSubscribedLength%>
+													</b> Users
+												</div>
+												<a href="/admin/notSubscribedUsers"> <button type="button"
+														class="generate-bid-template-skill btn btn-primary btn-sm mt-2 mb-2"
+														data-id="1087" data-name="API" data-toggle="modal"
+														data-target="#bidModal">View</button></a>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	</div>
+
+	<script src="/assets/jquery.min.js"></script>
+	<script src="/assets/bootstrap.bundle.min.js"></script>
+	<script src="/assets/jquery.easing.min.js"></script>
+	<script src="/assets/sb-admin-2.min.js?v=6"></script>
+	<script src="/assets/jquery.dataTables.min.js"></script>
+	<script src="/assets/dataTables.bootstrap4.min.js"></script>
+	<script>
+		// Check if the success parameter is present in the URL
+		const urlParams = new URLSearchParams(window.location.search);
+		const success = urlParams.get('success');
+
+		if (success === 'true') {
+			// Display an alert message indicating that the password has been changed successfully
+			alert('Password changed successfully!');
+
+		}
+	</script>
+</body>
+
+</html>

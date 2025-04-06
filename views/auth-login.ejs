@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<title>Login | BIDMAN</title>
+
+	<meta property="og:url" content="https://bidman.co/" />
+	<meta property="og:type" content="website" />
+	<meta property="og:title" content="BIDMAN" />
+	<meta property="og:description" content="BIDMAN is a tool which gives you upper hand to other freelancers" />
+	<meta property="og:image" content="https://cdn.bidman.co/images/logo.png" />
+
+	<!-- <link rel="icon" href="https://cdn.bidman.co/images/favicon/favicon-32x32.png" sizes="32x32">
+	<link rel="icon" href="https://cdn.bidman.co/images/favicon/favicon-57x57.png" sizes="57x57">
+	<link rel="icon" href="https://cdn.bidman.co/images/favicon/favicon-76x76.png" sizes="76x76">
+	<link rel="icon" href="https://cdn.bidman.co/images/favicon/favicon-96x96.png" sizes="96x96">
+	<link rel="icon" href="https://cdn.bidman.co/images/favicon/favicon-128x128.png" sizes="128x128">
+	<link rel="icon" href="https://cdn.bidman.co/images/favicon/favicon-192x192.png" sizes="192x192">
+	<link rel="icon" href="https://cdn.bidman.co/images/favicon/favicon-228x228.png" sizes="228x228">
+	<link rel="shortcut icon" sizes="196x196" href="https://cdn.bidman.co/images/favicon/favicon-196x196.png"> -->
+	<link rel="apple-touch-icon" href="https://cdn.bidman.co/images/favicon/favicon-120x120.png" sizes="120x120">
+	<link rel="apple-touch-icon" href="https://cdn.bidman.co/images/favicon/favicon-152x152.png" sizes="152x152">
+	<link rel="apple-touch-icon" href="https://cdn.bidman.co/images/favicon/favicon-180x180.png" sizes="180x180">
+	<meta name="theme-color" content="#012B46">
+	<meta name="msapplication-TileColor" content="#FFFFFF">
+	<meta name="msapplication-TileImage" content="https://cdn.bidman.co/images/favicon/favicon-144x144.png">
+
+	<link href="https://cdn.bidman.co/app_assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet"
+		type="text/css">
+	<link
+		href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+		rel="stylesheet">
+	<link href="https://cdn.bidman.co/app_assets/css/sb-admin-2.min.css?v=11" rel="stylesheet">
+	<style type="text/css">
+		.bg-landing {
+			background-color: #160042;
+		}
+
+		.main-shape,
+		.noise-bg {
+			left: 0;
+			top: 0;
+			background-position: center;
+			width: 100%;
+			height: 100%;
+			z-index: -1
+		}
+
+		.noise-bg {
+			background-repeat: repeat;
+			position: absolute;
+			mix-blend-mode: soft-light;
+			opacity: .7
+		}
+
+		.main-shape {
+			position: fixed;
+			background-size: cover
+		}
+	</style>
+</head>
+
+<body class="bg-landing" style="height: auto;">
+	<div class="noise-bg" style="background-image: url(https://cdn.bidman.co/v1/images/noise_bg.png)"></div>
+	<div class="main-shape" style="background-image: url(https://cdn.bidman.co/v1/images/main_shape.png)"></div>
+
+	<div id="auth_layout">
+		<div id="auth_layout_content">
+			<div class="container">
+				<div class="row justify-content-center">
+					<div class="col-xl-5 col-lg-6 col-md-9">
+						<div class="card o-hidden border-0 shadow-lg mt-5 mb-2">
+							<div class="card-body p-3">
+								<div class="pt-3 px-3 pb-1">
+									<div class="text-center">
+										<a href="/">
+											<h1>AUTOBIDS</h1>
+										</a>
+										<h1 class="h4 text-gray-900 my-3 text-left ml-3">Login</h1>
+									</div>
+									<form class="user" method="POST" action="/login">
+
+										<% if (messages.error) { %>
+											<% messages.error.forEach(function(message) { %>
+												<div class="alert alert-danger">
+													<%= message %>
+												</div>
+												<% }); %>
+													<% } %>
+
+														<% if (messages.success) { %>
+															<% messages.success.forEach(function(message) { %>
+																<div class="alert alert-success">
+																	<%= message %>
+																</div>
+																<% }); %>
+																	<% } %>
+																		<div class="form-group">
+																			<input type="text"
+																				class="form-control form-control-user"
+																				id="input-username" name="username"
+																				value="" placeholder="Enter username"
+																				required autofocus="on">
+																		</div>
+																		<div class="form-group">
+																			<input type="password"
+																				class="form-control form-control-user"
+																				id="input-password" name="password"
+																				placeholder="Enter password" required>
+																		</div>
+																		<div class="form-group pl-0">
+																			<div
+																				class="custom-control custom-checkbox small d-inline-block mr-5">
+																				<input type="checkbox" name="remember"
+																					value="true"
+																					class="custom-control-input"
+																					id="input-remember">
+																				<label class="custom-control-label"
+																					for="input-remember">Remember me for
+																					30 days</label>
+																			</div>
+																		</div>
+																		<button type="submit"
+																			class="btn btn-primary btn-user btn-block">Login</a>
+									</form>
+									<hr>
+									<div class="text-center">
+										<a class="small" href="/forgot-password">Forgot password?</a>
+									</div>
+
+									<div class="text-center">
+										<a class="small" href="/signup">Create a new account</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="auth_layout_footer">
+			<footer class="auth_footer mt-auto">
+				<div class="container-fluid">
+					<div class="row">
+						<div class="col-sm-6 text-sm-right small mt-1 mt-sm-0">
+							<a href="https://bidman.co/privacy-policy">Privacy Policy</a>
+							<span class="d-inline-block mx-1">•</span>
+							<a href="https://bidman.co/terms-conditions">Terms and Conditions</a>
+						</div>
+					</div>
+				</div>
+			</footer>
+		</div>
+	</div>
+
+	<script src="/assets/jquery.min.js"></script>
+	<script src="/assets/bootstrap.bundle.min.js"></script>
+	<script src="/assets/jquery.easing.min.js"></script>
+	<script src="/assets/sb-admin-2.min.js?v=6"></script>
+</body>
+
+</html>

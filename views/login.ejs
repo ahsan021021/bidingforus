@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Login | AutoBids - Automate freelancer bidding with chatgpt</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="Tailwind CSS AI Startup & Technology Saas & AI Software Landing Page Template, ai agency, ai application, ai business, ai, creative ai art, ai it solutions, modern web ai, multipurpose, saas, nft art, nft software, tailwind css." name="description" />
+    <meta content="coderthemes" name="author" />
+
+    <!-- App favicon -->
+    <link rel="shortcut icon" href="/assets/images/favicon.ico">
+
+    <!-- style css -->
+    <link href="/assets/css/style.min.css" rel="stylesheet" type="text/css">
+    <link href="/assets/css/bmain.css" rel="stylesheet" type="text/css">
+    
+    <!-- Icons css -->
+    <link href="/assets/css/icons.css" rel="stylesheet" type="text/css">
+</head>
+
+<body class="bg-slate-900 relative h-full">
+    <div>
+        <div class="fixed top-0 -z-10">
+            <div class="blur-[200px] w-[500px] h-[500px] rounded-full bg-gradient-to-tl from-red-600/40 to-pink-600/40"></div>
+        </div>
+        <div class="fixed top-0 end-0 -z-10">
+            <div class="blur-[200px] w-[500px] h-[500px] rounded-full bg-gradient-to-tl from-red-600/40 to-pink-600/40"></div>
+        </div>
+        <div class="fixed inset-0 flex items-center justify-center -z-10">
+            <div class="blur-[200px] w-[500px] h-[500px] rounded-full bg-gradient-to-tl from-red-600/40 to-pink-600/40"></div>
+        </div>
+        <div class="fixed bottom-0 start-0 -z-10">
+            <div class="blur-[200px] w-[500px] h-[500px] rounded-full bg-gradient-to-tl from-red-600/40 to-pink-600/40"></div>
+        </div>
+        <div class="fixed bottom-0 end-0 -z-10">
+            <div class="blur-[200px] w-[500px] h-[500px] rounded-full bg-gradient-to-tl from-red-600/40 to-pink-600/40"></div>
+        </div>
+    </div><!-- end body bg gradient -->
+
+    <section class="flex items-center py-6 px-0 lg:p-10 w-full lg:h-screen">
+        <div class="container">
+            <div class="backdrop-blur-2xl bg-default-950/40 rounded-2xl overflow-hidden max-w-xl mx-auto">
+                <div class="grid lg:grid-cols-1 gap-10">
+                    
+                    <div class="flex flex-col h-full p-10">
+                        <div class="pb-10">
+                            <a href="/" class="flex">
+                                <h3 class="text-3xl font-medium capitalize text-white "><image src="/images/bidmanwhite.png"></image></h3>
+                            </a>
+                            
+                        </div>
+                        <div class="pb6 my-auto">
+                            <h4 class="text-2xl font-bold text-white mb-4">Signin</h4>
+                            <p class="text-default-300 mb-8 max-w-sm ">Signin with your username & password.</p>
+                            <form class="user" method="POST" action="/login">
+
+                                <% if (messages.error) { %>
+                                    <% messages.error.forEach(function(message) { %>
+                                        <div class="alert alert-danger"><%= message %></div>
+                                    <% }); %>
+                                <% } %>
+                                
+                                <% if (messages.success) { %>
+                                    <% messages.success.forEach(function(message) { %>
+                                        <div class="alert alert-success"><%= message %></div>
+                                    <% }); %>
+                                <% } %>
+                                <div class="form-group">
+<input type="text" style="width: 100%; border-radius : 5px;margin-bottom:5px" class="form-control form-control-user" id="input-username" name="username" value="" placeholder="Enter username" required autofocus="on">
+</div>
+<div class="form-group">
+<input type="password" style="width: 100%; border-radius : 5px;margin-bottom:5px" class="form-control form-control-user" id="input-password" name="password" placeholder="Enter password" required>
+</div>
+<div class="form-group pl-0">
+<div class="custom-control custom-checkbox small d-inline-block mr-5">
+<input type="checkbox" name="remember"  value="true" class="custom-control-input" id="input-remember">
+<label class="custom-control-label" for="input-remember">Remember me for 30 days</label>
+</div>
+</div>
+<button type="submit" class="btn btn-primary btn-user btn-block" style="margin-top: 10px; width: 100%">Login</button>
+</form>
+                        </div>
+                        <div>
+                           
+                        </div>
+                    </div> <!-- end col -->
+                </div> <!-- end grid -->
+            </div> <!-- end bg -->
+            <div class="w-full text-center mt-5">
+                <p class="text-default-300 leading-6 text-base font-medium">Don't have an account? <a href="/signup" class="text-primary font-semibold ms-1">Register</a></p>
+            </div>
+        </div><!-- end container -->
+    </section><!-- end section -->
+
+    <!-- footer start -->
+    <footer class="2xl:fixed bottom-0 start-0 end-0 my-3">
+        <div class="container">
+            <p class="text-base font-medium text-center text-default-200">
+                <script>document.write(new Date().getFullYear())</script>
+                ©	<h2><image style="height: 30px;" src="/images/bidmanclack.png"></image></h2></a>
+            </p>
+        </div>
+    </footer>
+    <!-- footer end -->
+</body>
+
+</html>

@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Dashboard | AutoBids - Revolutionizing Freelance Bidding with Cutting-Edge AI Technology</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="Tailwind CSS AI Startup & Technology Saas & AI Software Landing Page Template, ai agency, ai application, ai business, ai, creative ai art, ai it solutions, modern web ai, multipurpose, saas, nft art, nft software, tailwind css." name="description" />
+    <meta content="coderthemes" name="author" />
+
+    <!-- App favicon -->
+    <link rel="shortcut icon" href="/assets/images/favicon.ico">
+
+    <!--Swiper slider css-->
+    <link href="/assets/libs/swiper/swiper-bundle.min.css" rel="stylesheet" type="text/css">
+
+    <!-- Glightbox Plugin css -->
+    <link href="/assets/libs/glightbox/css/glightbox.min.css" rel="stylesheet" type="text/css">
+
+    <!-- Style css -->
+    <link href="/assets/css/style.min.css" rel="stylesheet" type="text/css">
+    <link href="/assets/css/style.css" rel="stylesheet" type="text/css">
+
+    <!-- Icons css -->
+    <link href="/assets/css/icons.min.css" rel="stylesheet" type="text/css">
+
+    <!-- Animation on Scroll css -->
+    <link href="/assets/libs/aos/aos.css" rel="stylesheet" type="text/css">
+    <style>
+        .card {
+            width: 80%; /* Adjust as necessary */
+            border: 1px solid #ddd;
+            margin : 10px auto;
+            border-radius: 5px;
+            padding: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            background: white;
+        }
+        
+        .header h1 {
+            font-size: 14px; /* Adjust to match the design */
+            color: #333;
+            margin-bottom: 10px;
+        }
+        
+        .sub-header {
+            font-size: 12px;
+            color: #666;
+            margin-bottom: 20px;
+        }
+        
+        .footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 12px;
+        }
+        
+        .time, .tags, .meta, .budget, .bid {
+            margin-bottom: 5px;
+        }
+        
+        .tags span, .meta span {
+            background: #f2f2f2;
+            padding: 5px;
+            border-radius: 3px;
+            margin-right: 5px;
+        }
+        
+        .payment-verified, .email-verified {
+            color: green;
+        }
+        
+        .deposit-made, .identity-not-verified {
+            color: red;
+        }
+        
+        .budget {
+            font-weight: bold;
+            color: #333;
+        }
+        
+        .bid input {
+            padding: 5px;
+            margin-right: 5px;
+        }
+        
+        .bid button {
+            padding: 5px 10px;
+            background-color: #5cb85c;
+            color: white;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+        
+        .bid button:hover {
+            background-color: #4cae4c;
+        }
+    </style>
+</head>
+
+<body class="bg-default-900">
+    <div>
+        <div class="fixed top-0 -z-10">
+            <div class="blur-[200px] w-[500px] h-[500px] rounded-full bg-gradient-to-tl from-red-600/30 to-pink-600/30"></div>
+        </div>
+        <div class="fixed top-0 end-0 -z-10">
+            <div class="blur-[200px] w-[500px] h-[500px] rounded-full bg-gradient-to-tl from-red-600/30 to-pink-600/30"></div>
+        </div>
+        <div class="fixed inset-0 flex items-center justify-center -z-10">
+            <div class="blur-[200px] w-[500px] h-[500px] rounded-full bg-gradient-to-tl from-red-600/30 to-pink-600/30"></div>
+        </div>
+        <div class="fixed bottom-0 start-0 -z-10">
+            <div class="blur-[200px] w-[500px] h-[500px] rounded-full bg-gradient-to-tl from-red-600/30 to-pink-600/30"></div>
+        </div>
+        <div class="fixed bottom-0 end-0 -z-10">
+            <div class="blur-[200px] w-[500px] h-[500px] rounded-full bg-gradient-to-tl from-red-600/30 to-pink-600/30"></div>
+        </div>
+    </div><!-- end body bg gradient -->
+
+    <!-- Navbar Start -->
+    <header id="navbar-sticky" class="navbar">
+        <div class="container">
+            <nav>
+                <!-- Navbar Brand Logo -->
+                <a href="index-5.html" class="logo">
+                    <!--  <img src="/assets/images/logo.png" class="h-10" alt="WebAi Logo">  -->
+                   	<h2><image style="height: 30px;" src="/images/bidmanwhite.png"></image></h2>
+                </a>
+
+                <!-- Moblie Menu Toggle Button (Offcanvas Button) -->
+                <div class="lg:hidden flex items-center ms-auto px-2.5">
+                    <button class="hs-collapse-toggle inline-flex items-center justify-center h-9 w-12 rounded-md border border-white/20 bg-default-100/5" type="button" id="hs-unstyled-collapse" data-hs-collapse="#mobileMenu" data-hs-type="collapse">
+                        <i data-lucide="menu" class="h-5 w-5 stroke-white"></i>
+                    </button>
+                </div>
+
+                <!-- Nevigation Menu -->
+                <div id="mobileMenu" class="hs-collapse transition-all duration-300 lg:basis-auto basis-full grow hidden lg:flex items-center justify-center mx-auto mt-2 lg:mt-0">
+                    <ul id="navbar-navlist" class="navbar-nav">
+                        <!-- Home Page Link -->
+                        <li class="nav-item">
+                            <a class="nav-link" href="/dashboard">Dashboard</a>
+                        </li>
+
+                        <!-- Service Page Link -->
+                        <li class="nav-item">
+                            <a class="nav-link" href="#categories">My Bids</a>
+                        </li>
+
+                        <!-- Features Page Link -->
+                        <li class="nav-item">
+                            <a class="nav-link" href="/dashboard">Search Projects</a>
+                        </li>
+
+                        <!-- Price Page Link -->
+                        <li class="nav-item">
+                            <a class="nav-link" href="/settings">Settings</a>
+                        </li>
+
+                        <!-- Faq Page Link -->
+                        <li class="nav-item">
+                            <a class="nav-link" href="#faq">Profile</a>
+                        </li>
+
+                        
+                    </ul>
+                    <!-- Download Button -->
+                    <div class="lg:hidden flex items-center pt-4 mt-4 lg:pt-0 lg:mt-0 border-t border-white/10 lg:border-none">
+                        <a href="/logout" class="inline-flex items-center justify-center gap-2 bg-primary text-white py-2 px-6 rounded-full hover:bg-primary-hover transition-all duration-3"><i data-lucide="arrow-big-right-dash" class="h-5 w-5 me-2"></i> Logout</a>
+                    </div>
+                </div>
+                <!-- Download Button -->
+                <div class="hidden lg:flex items-center">
+                    <a href="/logout" class="inline-flex items-center justify-center gap-2 bg-primary text-white py-2 px-6 rounded-full hover:bg-primary-hover transition-all duration-300"><i data-lucide="arrow-big-right-dash" class="h-5 w-5 me-2"></i> Logout</a>
+                </div>
+            </nav><!-- end nav -->
+        </div>
+    </header>
+    <!-- Navbar End -->
+
+    <!-- Start -->
+    <section id="home" class="relative pt-[74px] overflow-hidden" style="margin-bottom : 50px">
+        <div class="card">
+            <div class="header">
+                <h1 style="font-weight : 700">Looking for an experimented ANDROID developer with ROOM livedata and foreground services</h1>
+            </div>
+            <p class="sub-header">Hello, we're looking for ANDROID JAVA developer for 1-2 weeks full time to work on add persistancy of Data in our app and activities screen Experience with ROOM Livedata and Foreground services required Goal is to...</p>
+            <div class="footer">
+                <span class="time">26 second ago — 0 bids</span>
+                <div class="tags">
+                    <span>Java,</span>
+                    <span>Mobile App Development,</span>
+                    <span>Android,</span>
+                    <span>Software Architecture</span>
+                </div>
+                <div class="meta">
+                    <span class="payment-verified">Payment verified</span>
+                    <span class="deposit-made">Deposit made</span>
+                    <span class="identity-not-verified">Identity not verified</span>
+                    <span class="email-verified">Email verified</span>
+                </div>
+                <div class="budget">
+                    <span>€30 - €100</span>
+                </div>
+                <div class="bid">
+                    <input type="number" placeholder="Your Bid">
+                    <button type="button">Place Bid</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="header">
+                <h1 style="font-weight : 700">Looking for an experimented ANDROID developer with ROOM livedata and foreground services</h1>
+            </div>
+            <p class="sub-header">Hello, we're looking for ANDROID JAVA developer for 1-2 weeks full time to work on add persistancy of Data in our app and activities screen Experience with ROOM Livedata and Foreground services required Goal is to...</p>
+            <div class="footer">
+                <span class="time">26 second ago — 0 bids</span>
+                <div class="tags">
+                    <span>Java,</span>
+                    <span>Mobile App Development,</span>
+                    <span>Android,</span>
+                    <span>Software Architecture</span>
+                </div>
+                <div class="meta">
+                    <span class="payment-verified">Payment verified</span>
+                    <span class="deposit-made">Deposit made</span>
+                    <span class="identity-not-verified">Identity not verified</span>
+                    <span class="email-verified">Email verified</span>
+                </div>
+                <div class="budget">
+                    <span>€30 - €100</span>
+                </div>
+                <div class="bid">
+                    <input type="number" placeholder="Your Bid">
+                    <button type="button">Place Bid</button>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="card">
+            <div class="header">
+                <h1 style="font-weight : 700">Looking for an experimented ANDROID developer with ROOM livedata and foreground services</h1>
+            </div>
+            <p class="sub-header">Hello, we're looking for ANDROID JAVA developer for 1-2 weeks full time to work on add persistancy of Data in our app and activities screen Experience with ROOM Livedata and Foreground services required Goal is to...</p>
+            <div class="footer">
+                <span class="time">26 second ago — 0 bids</span>
+                <div class="tags">
+                    <span>Java,</span>
+                    <span>Mobile App Development,</span>
+                    <span>Android,</span>
+                    <span>Software Architecture</span>
+                </div>
+                <div class="meta">
+                    <span class="payment-verified">Payment verified</span>
+                    <span class="deposit-made">Deposit made</span>
+                    <span class="identity-not-verified">Identity not verified</span>
+                    <span class="email-verified">Email verified</span>
+                </div>
+                <div class="budget">
+                    <span>€30 - €100</span>
+                </div>
+                <div class="bid">
+                    <input type="number" placeholder="Your Bid">
+                    <button type="button">Place Bid</button>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="card">
+            <div class="header">
+                <h1 style="font-weight : 700">Looking for an experimented ANDROID developer with ROOM livedata and foreground services</h1>
+            </div>
+            <p class="sub-header">Hello, we're looking for ANDROID JAVA developer for 1-2 weeks full time to work on add persistancy of Data in our app and activities screen Experience with ROOM Livedata and Foreground services required Goal is to...</p>
+            <div class="footer">
+                <span class="time">26 second ago — 0 bids</span>
+                <div class="tags">
+                    <span>Java,</span>
+                    <span>Mobile App Development,</span>
+                    <span>Android,</span>
+                    <span>Software Architecture</span>
+                </div>
+                <div class="meta">
+                    <span class="payment-verified">Payment verified</span>
+                    <span class="deposit-made">Deposit made</span>
+                    <span class="identity-not-verified">Identity not verified</span>
+                    <span class="email-verified">Email verified</span>
+                </div>
+                <div class="budget">
+                    <span>€30 - €100</span>
+                </div>
+                <div class="bid">
+                    <input type="number" placeholder="Your Bid">
+                    <button type="button">Place Bid</button>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="card">
+            <div class="header">
+                <h1 style="font-weight : 700">Looking for an experimented ANDROID developer with ROOM livedata and foreground services</h1>
+            </div>
+            <p class="sub-header">Hello, we're looking for ANDROID JAVA developer for 1-2 weeks full time to work on add persistancy of Data in our app and activities screen Experience with ROOM Livedata and Foreground services required Goal is to...</p>
+            <div class="footer">
+                <span class="time">26 second ago — 0 bids</span>
+                <div class="tags">
+                    <span>Java,</span>
+                    <span>Mobile App Development,</span>
+                    <span>Android,</span>
+                    <span>Software Architecture</span>
+                </div>
+                <div class="meta">
+                    <span class="payment-verified">Payment verified</span>
+                    <span class="deposit-made">Deposit made</span>
+                    <span class="identity-not-verified">Identity not verified</span>
+                    <span class="email-verified">Email verified</span>
+                </div>
+                <div class="budget">
+                    <span>€30 - €100</span>
+                </div>
+                <div class="bid">
+                    <input type="number" placeholder="Your Bid">
+                    <button type="button">Place Bid</button>
+                </div>
+            </div>
+        </div>
+    </section><!--end section-->
+    <!-- End -->
+
+
+   <!-- Footer section start -->
+<footer class="bg-default-950/40 backdrop-blur-3xl">
+    <div class="container lg:px-20">
+        <div class="flex flex-col lg:flex-row justify-between gap-14 py-24">
+            <!-- Left Side -->
+            <div class="lg:w-6/12">
+                <a href="#" class="flex items-center gap-2 logo">
+                    <h2><image style="height: 30px;" src="/images/bidmanclack.png"></image></h2>
+                </a>
+
+                <p class="text-default-200 text-sm font-medium max-w-xs mt-6">Revolutionizing Freelance Bidding With Cutting-Edge AI Technology</p>
+            </div>
+
+            <!-- Right Side -->
+            <div class="lg:w-6/12">
+                <div class="grid md:grid-cols- sm:grid-cols-2 gap-6">
+                    <div>
+                        <h5 class="text-default-200 text-base font-semibold mb-4 mt-6">Follow Us</h5>
+                        <ul class="flex flex-wrap items-center gap-1">
+                            <li>
+                                <a href="javascript:void(0);" class="h-8 w-8 inline-flex items-center justify-center border border-white/10 rounded-md transition-all duration-500 group hover:bg-primary">
+                                    <i data-lucide="facebook" class="h-4 w-4 text-default-300 group-hover:text-white"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0);" class="h-8 w-8 inline-flex items-center justify-center border border-white/10 rounded-md transition-all duration-500 group hover:bg-primary">
+                                    <i data-lucide="instagram" class="h-4 w-4 text-default-300 group-hover:text-white"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0);" class="h-8 w-8 inline-flex items-center justify-center border border-white/10 rounded-md transition-all duration-500 group hover:bg-primary">
+                                    <i data-lucide="twitter" class="h-4 w-4 text-default-300 group-hover:text-white"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0);" class="h-8 w-8 inline-flex items-center justify-center border border-white/10 rounded-md transition-all duration-500 group hover:bg-primary">
+                                    <i data-lucide="linkedin" class="h-4 w-4 text-default-300 group-hover:text-white"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div><!-- Grid End -->
+    </div><!-- Container End -->
+</footer>
+<!-- Footer section end -->
+
+
+        <div class="border-t border-white/10 py-6">
+            <div class="container lg:px-20 flex flex-wrap justify-center items-center gap-4 h-full md:justify-between text-center md:text-start">
+                <p class="text-base font-medium text-default-400">
+                    <script>document.write(new Date().getFullYear())</script>
+                    © AutoBids
+                </p>
+                <p class="text-base font-medium text-default-400">
+                    <a href="#">Terms Conditions & Policy</a>
+                </p>
+            </div><!-- Flex End -->
+        </div><!-- Container End -->
+    </footer>
+    <!-- Footer section End -->
+
+    <!-- Back To Top Start -->
+    <button id="back-to-top" onclick="topFunction()" class="fixed text-xl rounded-full z-10 bottom-5 end-5 h-8 w-8 text-center bg-white backdrop-blur-3xl text-default-950 flex justify-center items-center transition-all duration-500 hover:bg-primary hover:text-white hover:rounded-lg">
+        <i data-lucide="chevron-up" class="h-4 w-4"></i>
+    </button>
+    <!-- Back To Top End -->
+
+    <!-- Plugin Js -->
+    <script src="/assets/libs/preline/preline.js"></script>
+
+    <!-- swiper -->
+    <script src="/assets/libs/swiper/swiper-bundle.min.js"></script>
+
+    <!-- Gumshoejs -->
+    <script src="/assets/libs/gumshoejs/gumshoe.polyfills.min.js"></script>
+    <script src="/assets/libs/glightbox/js/glightbox.min.js"></script>
+
+    <!-- Lucid Icons -->
+    <script src="/assets/libs/lucide/umd/lucide.min.js"></script>
+
+    <!-- Animation on Scroll Plugin Js -->
+    <script src="/assets/libs/aos/aos.js"></script>
+
+    <!-- Counter Js -->
+    <script src="/assets/js/counter.js"></script>
+
+    <!-- Glightbox Js -->
+    <script src="/assets/js/glightbox.js"></script>
+
+    <!-- Theme Js -->
+    <script src="/assets/js/theme.js"></script>
+    <script src="https://kit.fontawesome.com/ee50fd34bc.js" crossorigin="anonymous"></script>
+
+</body>
+
+</html>

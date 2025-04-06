@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>Add Skill Set | AUTO BIDS</title>
+
+    <meta property="og:url" content="https://bidman.co/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="BIDMAN" />
+    <meta property="og:description" content="BIDMAN is a tool which gives you upper hand to other freelancers" />
+    <meta property="og:image" content="https://cdn.bidman.co/images/logo.png" />
+
+    <link rel="icon" href="https://cdn.bidman.co/images/favicon/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" href="https://cdn.bidman.co/images/favicon/favicon-57x57.png" sizes="57x57">
+    <link rel="icon" href="https://cdn.bidman.co/images/favicon/favicon-76x76.png" sizes="76x76">
+    <link rel="icon" href="https://cdn.bidman.co/images/favicon/favicon-96x96.png" sizes="96x96">
+    <link rel="icon" href="https://cdn.bidman.co/images/favicon/favicon-128x128.png" sizes="128x128">
+    <link rel="icon" href="https://cdn.bidman.co/images/favicon/favicon-192x192.png" sizes="192x192">
+    <link rel="icon" href="https://cdn.bidman.co/images/favicon/favicon-228x228.png" sizes="228x228">
+    <link rel="shortcut icon" sizes="196x196" href="https://cdn.bidman.co/images/favicon/favicon-196x196.png">
+    <link rel="apple-touch-icon" href="https://cdn.bidman.co/images/favicon/favicon-120x120.png" sizes="120x120">
+    <link rel="apple-touch-icon" href="https://cdn.bidman.co/images/favicon/favicon-152x152.png" sizes="152x152">
+    <link rel="apple-touch-icon" href="https://cdn.bidman.co/images/favicon/favicon-180x180.png" sizes="180x180">
+    <meta name="theme-color" content="#012B46">
+    <meta name="msapplication-TileColor" content="#FFFFFF">
+    <meta name="msapplication-TileImage" content="https://cdn.bidman.co/images/favicon/favicon-144x144.png">
+
+    <link href="../public/assets/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
+    <link href="https://cdn.bidman.co/app_assets/css/sb-admin-2.min.css?v=11" rel="stylesheet">
+    <link href="../public/assets/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+    <link href="../public/assets/bootstrap-tagsinput/bootstrap-tagsinput.css" rel="stylesheet">
+
+    <style type="text/css">
+        .wildcard-box {
+            background: #4e73df;
+            color: white;
+            border-radius: 4px;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .copied-box {
+            background: #333;
+            color: #eee;
+            padding: 7px 9px;
+            font-size: 13px;
+            line-height: 13px;
+            border-radius: 4px;
+            box-shadow: 0 1px 5px #333;
+            position: absolute;
+            right: 0px;
+            top: 30px;
+            z-index: 1;
+            display: none;
+        }
+
+        label {
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 3px;
+            color: #555;
+        }
+    </style>
+</head>
+
+<body id="page-top" class="sidebar-toggled">
+    <div id="wrapper">
+
+        <div id="content-wrapper" class="d-flex flex-column has-setting">
+            <div id="content">
+
+                <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+
+                    <a class="navbar-brand position-relative" href="/myBids>
+                    	<h2><image style="height: 30px;" src="/images/bidmanclack.png"></image></h2>
+                    </a>
+
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" style="font-size: 15px;" href="index.php" role="button">
+                                <span class="d-none d-sm-block">My&nbsp;</span>
+                                Bids
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" style="font-size: 15px;" href="search.php" role="button">
+                                Search
+                                <span class="d-none d-sm-block">&nbsp;Projects</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" style="font-size: 15px; color: #FE6500; font-weight: 600"
+                                href="about_ai.php" role="button">
+                                <span class="d-none d-sm-block">Bidman&nbsp;</span>
+                                AI
+                            </a>
+                        </li>
+                    </ul>
+
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item dropdown no-arrow">
+                            <a class="nav-link dropdown-toggle" style="font-size: 15px;" href="#" id="userDropdown"
+                                role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <div class="d-none d-sm-block mr-sm-2 text-right">
+                                    <p class="text-gray-600 small m-0">
+                                        <%= user.username %>
+                                    </p>
+                                </div>
+                                <i class="fas fa-chevron-down mr-2 text-center text-dark"
+                                    style="width: 20px;top: -2px;position: relative;"></i>
+                                <span class="position-relative">
+                                    <img class="img-profile rounded-circle"
+                                        src="https://cdn3.f-cdn.com/ppic/245304646/logo/75311776/profile_logo_75311776.jpg">
+                                </span>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                                aria-labelledby="userDropdown">
+                               
+                                <div class="dropdown-divider"></div>
+                                 <!-- <a class="dropdown-item" href="/settings" style="color: #18557F;">
+                                    <i class="fas fa-user-secret mr-2 text-center" style="width: 20px"></i>
+                                    Autobidding Settings
+                                </a> -->
+                                <a class="dropdown-item" href="/skills">
+                                    <i class="fas fa-heart mr-2 text-center" style="width: 20px"></i>
+                                    Skills
+                                </a>
+                                <a class="dropdown-item" href="/skills-sets">
+                                    <i class="fas fa-layer-group mr-2 text-center" style="width: 20px"></i>
+                                    Skill Sets
+                                </a>
+                                <a class="dropdown-item" href="/countries">
+                                    <i class="fas fa-flag mr-2 text-center" style="width: 20px"></i>
+                                    Countries
+                                </a>
+                                <a class="dropdown-item" href="/client-stats">
+                                    <i class="fas fa-filter mr-2 text-center" style="width: 20px"></i>
+                                    Client Stats
+                                </a>
+                                <a class="dropdown-item" href="/budget">
+                                    <i class="fas fa-dollar-sign mr-2 text-center" style="width: 20px"></i>
+                                    Project Budget
+                                </a>
+                                <a class="dropdown-item" href="/bidPrice">
+                                    <i class="fas fa-gavel mr-2 text-center" style="width: 20px"></i>
+                                    Bid Price
+                                </a>
+                                <a class="dropdown-item" href="/period">
+                                    <i class="far fa-clock mr-2 text-center" style="width: 20px"></i>
+                                    Project Period
+                                </a>
+                                <a class="dropdown-item" href="/timeSetting">
+                                    <i class="far fa-clock mr-2 text-center" style="width: 20px"></i>
+                                    Time Setting
+                                </a>
+                                <a class="dropdown-item" href="/tcats">
+                                    <i class="fas fa-sitemap mr-2 text-center" style="width: 20px"></i>
+                                    Template Categories
+                                </a>
+                                <a class="dropdown-item" href="/temp">
+                                    <i class="fas fa-list-ul mr-2 text-center" style="width: 20px"></i>
+                                    Templates
+                                </a>
+                                <a class="dropdown-item" href="/passChange">
+                                    <i class="fas fa-user-lock mr-2 text-center" style="width: 20px"></i>
+                                    Change Password
+                                </a>
+                                <a class="dropdown-item" href="/skills">
+                                    <i class="fas fa-cog mr-2 text-center" style="width: 20px"></i>
+                                    More Settings
+                                </a>
+                                <a class="dropdown-item" href="#">
+                                    <i class="fas fa-video mr-2 text-center" style="width: 20px"></i>
+                                    Demo Video
+                                </a>
+                                <a class="dropdown-item" href="/guide">
+                                    <i class="fas fa-book mr-2 text-center" style="width: 20px"></i>
+                                    AutoBids Guide
+                                </a>
+                                <a class="dropdown-item" href="/logout">
+                                    <i class="fas fa-sign-out-alt mr-2 text-center" style="width: 20px"></i>
+                                    Logout
+                                </a>
+                            </div>
+                        </li>
+                    </ul>
+                </nav>
+
+                <div class="container-fluid d-flex flex-wrap"></div>
+                <div class="container-fluid d-flex flex-wrap mb-2">
+                    <div class="admin-alert w-100" data-code="onboarding-welcome">
+                        <div class="alert-success alert-dismissible fade show p-0" style="padding-top: 5px; margin-bottom: 5px;  background: rgb(53,27,49);
+background: linear-gradient(90deg, rgba(53,27,49,1) 0%, rgba(102,29,58,1) 100%); color: white !important;" !important
+                            role="alert">
+                            <div class="px-3" style="padding-top: 10px; margin-bottom: 5px;">
+                                <h4 class="alert-heading mt-3">Welcome to Bidman!</h4>
+                                <p style="font-size: 17px;" class="mb-2">
+                                    Please note your Bidman username is:
+                                    <strong>
+                                        <%= user.username %>
+                                    </strong>
+                                </p>
+                                <p class="mb-2">
+                                    <a href="https://bidman.co/demo.mp4"
+                                        style="color: inherit;font-weight: 700;text-decoration: underline;">Click here
+                                        to watch complete demo video of Bidman</a>
+                                </p>
+                                <p class="mb-0">Your 5-days free trial subscription has started.</p>
+                                <p class="mb-0">
+                                    <strong>Click show more to view contact details.</strong>
+                                </p>
+                            </div>
+                            <div class="mb-0 px-3 pb-3 " style="background: none; /* background: -moz-linear-gradient(180deg, #d2f4e8 0%, #0f6848 100%); */
+                            /* background: -webkit-linear-gradient(180deg, #d2f4e8 0%, #0f6848 100%); */
+                            /* background: linear-gradient(180deg, #d2f4e8 0%, #0f6848 100%); */ ">
+                                <div>
+                                    <p class="mb-3">Use this free trial period to explore all the features of Bidman.
+                                    </p>
+                                    <p class="mb-0">Follow these three important steps for getting started and making
+                                        the most of your Bidman experience:</p>
+                                    <p class="mb-0 ml-3">
+                                        <strong>
+                                            <a href="/skills" style="color: inherit">1- Select
+                                                project skills</a>
+                                        </strong>
+                                        to stay notified with newly posted projects on which you love to work.
+                                    </p>
+                                    <p class="mb-0 ml-3">
+                                        <strong>
+                                            <a href="/temp" style="color: inherit">2-
+                                                Write awesome proposals</a>
+                                        </strong>
+                                        to take full advantage of quick and auto bidding using Bidman.
+                                    </p>
+                                    <p class="mb-3 ml-3">
+                                        <strong>
+                                            <a href="/search" style="color: inherit">3- Start
+                                                Autobidding</a>
+                                        </strong>
+                                        and let Bidman place bid on newly posted projects within seconds.
+                                    </p>
+                                    <p class="mb-0">For contact detail verification, queries or payment information,
+                                        please contact us at:</p>
+                                    <p class="mb-0 ml-3">
+                                        • Whatsapp:
+                                        <strong>
+                                            <a href=""
+                                                style="color: inherit; display: inline-block;">
+                                                <%= adminPhone %>
+                                            </a>
+                                            ,
+                                            <a href=""
+                                                style="color: inherit; display: inline-block;"></a>
+                                        </strong>
+                                    </p>
+                                    <p class="mb-0 ml-3">
+                                        • Email:
+                                        <strong>
+                                            <a href="mailto:info@bidman.co"
+                                                style="color: inherit; display: inline-block;">info@bidman.co</a>
+                                            ,
+                                            <a href="mailto:<%= adminEmail %>"
+                                                style="color: inherit; display: inline-block;">
+                                                <%= adminEmail %>
+                                            </a>
+                                        </strong>
+                                    </p>
+                                    <p class="mb-0 ml-3">
+                                        • Skype:
+                                        <strong>
+                                            <%= adminSkype %>
+                                        </strong>
+                                    </p>
+                                    <p class="mb-3 ml-3">
+                                        • Telegram:
+                                        <strong>
+                                            <a style="color: inherit; display: inline-block;">
+                                                <%= adminTelegram %>
+                                            </a>
+                                        </strong>
+                                    </p>
+                                    <p class="mb-2">
+                                        <a href="/" style="color: inherit">Click here to
+                                            read guide to help understand Bidman</a>
+                                    </p>
+                                    <p class="mb-0">Happy bidding</p>
+                                </div>
+                                <span
+                                    style="position: absolute; width: 100%; bottom: 1rem; justify-content: center; display: flex;">
+
+                                </span>
+                            </div>
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">×</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="container-fluid">
+
+                    <a href="javascript:;" class="setting-collpase-btn">Show Settings Menu</a>
+                    <div class="setting-container mb-4">
+                        <div class="setting-sidebar">
+                            <h5 class="h5">Settings</h5>
+                            <div class="setting-item-container">
+                                <a class="setting-item " href="/skills">
+                                    <i class="fas fa-heart"></i>
+                                    <span>Skills</span>
+                                </a>
+                                <a class="setting-item " href="/skills-sets">
+                                    <i class="fas fa-layer-group"></i>
+                                    <span>Skill Sets</span>
+                                </a>
+                                <a class="setting-item " href="/countries">
+                                    <i class="fas fa-flag"></i>
+                                    <span>Countries</span>
+                                </a>
+                                <a class="setting-item " href="/client-stats">
+                                    <i class="fas fa-filter"></i>
+                                    <span>Client Stats</span>
+                                </a>
+                                <a class="setting-item " href="/budget">
+                                    <i class="fas fa-dollar-sign"></i>
+                                    <span>Project Budget</span>
+                                </a>
+                                <a class="setting-item " href="/bidPrice">
+                                    <i class="fas fa-gavel"></i>
+                                    <span>Bid Price</span>
+                                </a>
+                                <a class="setting-item " href="/period">
+                                    <i class="far fa-clock"></i>
+                                    <span>Project Period</span>
+                                </a>
+                                <a class="setting-item " href="/timeSetting">
+                                    <i class="far fa-clock"></i>
+                                    <span>Time Setting</span>
+                                </a>
+                                <a class="setting-item " href="/tcats">
+                                    <i class="fas fa-sitemap"></i>
+                                    <span>Template Categories</span>
+                                </a>
+                                <a class="setting-item active" href="/temp">
+                                    <i class="fas fa-list-ul"></i>
+                                    <span>Templates</span>
+                                </a>
+                                <a class="setting-item " href="/passChange">
+                                    <i class="fas fa-user-lock"></i>
+                                    <span>Change Password</span>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="setting-content">
+                            <form method="POST" action="/skill_set_add">
+                                <input type="text" id="wildcard-copy-input"
+                                    style="display: block; font-size: 1px; position: relative; top: 50px; width: 70%; left: 15%; line-height: 1px; border-color: white; border-style: none; color: white;">
+                                <div class="card shadow">
+                                    <div class="card-header py-3 d-flex align-items-center">
+                                        <h5 class="h5 m-0 text-primary">Add Skill Set</h5>
+                                        <h6 class="m-0 font-weight-bold text-primary align-self-center ml-auto">
+                                            <a href="skill_sets.php">Back</a>
+                                        </h6>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="form-row">
+                                            <div class="form-group col-md-4">
+                                                <label for="input-name">Name</label>
+                                                <input type="text" class="form-control" id="input-name" name="name"
+                                                    value="" required autofocus>
+                                            </div>
+                                            <div class="form-group col-md-8">
+                                                <label for="input-skills">Skills</label>
+                                                <input type="text" class="form-control w-100" name="skills"
+                                                    id="set-skills" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card-footer">
+                                        <button type="submit" name="submit"
+                                            class="btn btn-success ml-auto d-flex">Submit</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/assets/jquery.min.js"></script>
+    <script src="/assets/bootstrap.bundle.min.js"></script>
+    <script src="/assets/jquery.easing.min.js"></script>
+    <script src="/assets/sb-admin-2.min.js?v=6"></script>
+    <script src="/assets/jquery.dataTables.min.js"></script>
+    <script src="/assets/dataTables.bootstrap4.min.js"></script>
+    <script src="/assets/typeahead.bundle.min.js"></script>
+    <script src="/assets/bootstrap-tagsinput.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var allSkills = [{
+                "tag": "API",
+                "value": "1087"
+            }, {
+                "tag": "Database Development",
+                "value": "709"
+            }, {
+                "tag": "Express JS",
+                "value": "598"
+            }, {
+                "tag": "Flutter",
+                "value": "1315"
+            }, {
+                "tag": "Full Stack Development",
+                "value": "1088"
+            }, {
+                "tag": "HTML",
+                "value": "335"
+            }, {
+                "tag": "HTML5",
+                "value": "323"
+            }, {
+                "tag": "JavaScript",
+                "value": "9"
+            }, {
+                "tag": "Laravel",
+                "value": "669"
+            }, {
+                "tag": "MongoDB",
+                "value": "1254"
+            }, {
+                "tag": "MySQL",
+                "value": "305"
+            }, {
+                "tag": "Next.js",
+                "value": "2376"
+            }, {
+                "tag": "Node.js",
+                "value": "500"
+            }, {
+                "tag": "PHP",
+                "value": "3"
+            }, {
+                "tag": "React Native",
+                "value": "1314"
+            }, {
+                "tag": "React.js",
+                "value": "759"
+            }, {
+                "tag": "Software Development",
+                "value": "613"
+            }, {
+                "tag": "Typescript",
+                "value": "979"
+            }, {
+                "tag": "Web Development",
+                "value": "1031"
+            }, {
+                "tag": "Website Development",
+                "value": "2839"
+            }];
+            $('#set-skills').amsifySuggestags({
+                selectOnHover: false,
+                whiteList: true,
+                suggestions: allSkills,
+                keepLastOnHoverTag: false,
+            });
+        });
+    </script>
+</body>
+
+</html>

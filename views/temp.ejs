@@ -1,0 +1,970 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>Templates | AutoBids</title>
+
+    <meta property="og:url" content="https://AutoBids.co/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="AutoBids" />
+    <meta property="og:description" content="AutoBids is a tool which gives you upper hand to other freelancers" />
+    <meta property="og:image" content="https://cdn.bidman.co/images/logo.png" />
+
+    <link rel="icon" href="https://cdn.bidman.co/images/favicon/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" href="https://cdn.bidman.co/images/favicon/favicon-57x57.png" sizes="57x57">
+    <link rel="icon" href="https://cdn.bidman.co/images/favicon/favicon-76x76.png" sizes="76x76">
+    <link rel="icon" href="https://cdn.bidman.co/images/favicon/favicon-96x96.png" sizes="96x96">
+    <link rel="icon" href="https://cdn.bidman.co/images/favicon/favicon-128x128.png" sizes="128x128">
+    <link rel="icon" href="https://cdn.bidman.co/images/favicon/favicon-192x192.png" sizes="192x192">
+    <link rel="icon" href="https://cdn.bidman.co/images/favicon/favicon-228x228.png" sizes="228x228">
+    <link rel="shortcut icon" sizes="196x196" href="https://cdn.bidman.co/images/favicon/favicon-196x196.png">
+    <link rel="apple-touch-icon" href="https://cdn.bidman.co/images/favicon/favicon-120x120.png" sizes="120x120">
+    <link rel="apple-touch-icon" href="https://cdn.bidman.co/images/favicon/favicon-152x152.png" sizes="152x152">
+    <link rel="apple-touch-icon" href="https://cdn.bidman.co/images/favicon/favicon-180x180.png" sizes="180x180">
+    <meta name="theme-color" content="#012B46">
+    <meta name="msapplication-TileColor" content="#FFFFFF">
+    <meta name="msapplication-TileImage" content="https://cdn.bidman.co/images/favicon/favicon-144x144.png">
+
+    <link href="https://cdn.bidman.co/app_assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet"
+        type="text/css">
+    <link
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
+    <link href="https://cdn.bidman.co/app_assets/css/sb-admin-2.min.css?v=11" rel="stylesheet">
+    <link href="https://cdn.bidman.co/app_assets/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+    <style type="text/css">
+        table.dataTable.fixedHeader-floating,
+        table.dataTable.fixedHeader-locked {
+            background-color: white;
+            margin-top: 0 !important;
+            margin-bottom: 0 !important
+        }
+
+        table.dataTable.fixedHeader-floating {
+            position: fixed !important
+        }
+
+        table.dataTable.fixedHeader-locked {
+            position: absolute !important
+        }
+
+        @media print {
+            table.fixedHeader-floating {
+                display: none
+            }
+        }
+
+        table.dataTable>tbody>tr.child {
+            padding: 0.5em 1em;
+        }
+
+        table.dataTable.dtr-inline.collapsed>tbody>tr>td.child,
+        table.dataTable.dtr-inline.collapsed>tbody>tr>th.child,
+        table.dataTable.dtr-inline.collapsed>tbody>tr>td.dataTables_empty {
+            cursor: default !important;
+        }
+
+        table.dataTable>tbody>tr.child ul.dtr-details {
+            display: inline-block;
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        table.dataTable>tbody>tr.child ul.dtr-details>li:first-child {
+            padding-top: 0;
+        }
+
+        table.dataTable>tbody>tr.child ul.dtr-details>li:last-child {
+            border-bottom: none;
+        }
+
+        table.dataTable>tbody>tr.child span.dtr-title {
+            display: inline-block;
+            min-width: 75px;
+            font-weight: bold;
+        }
+
+        table.dataTable>tbody>tr.child ul.dtr-details>li {
+            border-bottom: 1px solid #efefef;
+            padding: 0.5em 0;
+        }
+
+        table.dataTable.dtr-inline.collapsed>tbody>tr[role="row"]>td:first-child,
+        table.dataTable.dtr-inline.collapsed>tbody>tr[role="row"]>th:first-child {
+            position: relative;
+            padding-left: 30px;
+            cursor: pointer;
+        }
+
+        table.dataTable.dtr-inline.collapsed>tbody>tr[role="row"]>td:first-child:before,
+        table.dataTable.dtr-inline.collapsed>tbody>tr[role="row"]>th:first-child:before {
+            top: 12px;
+            left: 4px;
+            height: 14px;
+            width: 14px;
+            display: block;
+            position: absolute;
+            color: white;
+            border: 2px solid white;
+            border-radius: 14px;
+            box-shadow: 0 0 3px #444;
+            box-sizing: content-box;
+            text-align: center;
+            text-indent: 0 !important;
+            font-family: 'Courier New', Courier, monospace;
+            line-height: 14px;
+            content: '+';
+            background-color: #0275d8;
+        }
+
+        .template-skill-box {
+            display: inline-block;
+            padding: .5rem 1rem !important;
+            box-shadow: 0 .15rem .4rem 0 rgba(58, 59, 69, .1) !important;
+            border-radius: .35rem !important;
+            border: 1px solid #d9dbe0 !important;
+            color: #2b2d3c;
+            margin-right: 5px;
+            margin-bottom: 10px;
+        }
+
+        .generate-bid-template-skill {
+            cursor: pointer;
+        }
+
+        @media (max-width: 575px) {
+            .modal-dialog {
+                max-width: 90%;
+                margin: 1.75rem auto;
+            }
+        }
+    </style>
+</head>
+
+<body id="page-top" class="sidebar-toggled">
+    <div id="wrapper">
+
+        <div id="content-wrapper" class="d-flex flex-column has-setting">
+            <div id="content">
+
+                <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+                    <a class="navbar-brand position-relative" href="/myBids>
+                        <h2><image style="height: 30px;" src="/images/bidmanclack.png"></image></h2>
+                    </a>
+
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" style="font-size: 15px;" href="/myBids" role="button"><span
+                                    class="d-none d-sm-block">My&nbsp;</span>Bids</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" style="font-size: 15px;" href="/search"
+                                role="button">Search<span class="d-none d-sm-block">&nbsp;Projects</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" style="font-size: 15px; color: #FE6500; font-weight: 600" href="/bidai"
+                                role="button"><span class="d-none d-sm-block">Autobids&nbsp;</span>AI</a>
+                        </li>
+                    </ul>
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item dropdown no-arrow">
+                            <a class="nav-link dropdown-toggle" style="font-size: 15px;" href="#" id="userDropdown"
+                                role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <div class="d-none d-sm-block mr-sm-2 text-right">
+                                    <p class="text-gray-600 small m-0">
+                                        <%= user.username %>
+                                    </p>
+                                </div>
+                                <i class="fas fa-chevron-down mr-2 text-center text-dark"
+                                    style="width: 20px;top: -2px;position: relative;"></i>
+                                <span class="position-relative">
+                                    <img class="img-profile rounded-circle"
+                                        src="https://cdn3.f-cdn.com/ppic/245304646/logo/75311776/profile_logo_75311776.jpg">
+                                </span>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                                aria-labelledby="userDropdown">
+                                
+                                <div class="dropdown-divider"></div>
+                                 <!-- <a class="dropdown-item" href="/settings" style="color: #18557F;">
+                                    <i class="fas fa-user-secret mr-2 text-center" style="width: 20px"></i>
+                                    Autobidding Settings
+                                </a> -->
+                                <a class="dropdown-item" href="/skills">
+                                    <i class="fas fa-heart mr-2 text-center" style="width: 20px"></i>
+                                    Skills
+                                </a>
+                                <a class="dropdown-item" href="/skills-sets">
+                                    <i class="fas fa-layer-group mr-2 text-center" style="width: 20px"></i>
+                                    Skill Sets
+                                </a>
+                                <a class="dropdown-item" href="/countries">
+                                    <i class="fas fa-flag mr-2 text-center" style="width: 20px"></i>
+                                    Countries
+                                </a>
+                                <a class="dropdown-item" href="/client-stats">
+                                    <i class="fas fa-filter mr-2 text-center" style="width: 20px"></i>
+                                    Client Stats
+                                </a>
+                                <a class="dropdown-item" href="/budget">
+                                    <i class="fas fa-dollar-sign mr-2 text-center" style="width: 20px"></i>
+                                    Project Budget
+                                </a>
+                                <a class="dropdown-item" href="/bidPrice">
+                                    <i class="fas fa-gavel mr-2 text-center" style="width: 20px"></i>
+                                    Bid Price
+                                </a>
+                                <a class="dropdown-item" href="/period">
+                                    <i class="far fa-clock mr-2 text-center" style="width: 20px"></i>
+                                    Project Period
+                                </a>
+                                <a class="dropdown-item" href="/timeSetting">
+                                    <i class="far fa-clock mr-2 text-center" style="width: 20px"></i>
+                                    Time Setting
+                                </a>
+                                <a class="dropdown-item" href="/tcats">
+                                    <i class="fas fa-sitemap mr-2 text-center" style="width: 20px"></i>
+                                    Template Categories
+                                </a>
+                                <a class="dropdown-item" href="/temp">
+                                    <i class="fas fa-list-ul mr-2 text-center" style="width: 20px"></i>
+                                    Templates
+                                </a>
+                                <a class="dropdown-item" href="/passChange">
+                                    <i class="fas fa-user-lock mr-2 text-center" style="width: 20px"></i>
+                                    Change Password
+                                </a>
+                                <a class="dropdown-item" href="/skills">
+                                    <i class="fas fa-cog mr-2 text-center" style="width: 20px"></i>
+                                    More Settings
+                                </a>
+                                <a class="dropdown-item" href="#">
+                                    <i class="fas fa-video mr-2 text-center" style="width: 20px"></i>
+                                    Demo Video
+                                </a>
+                                <a class="dropdown-item" href="/guide">
+                                    <i class="fas fa-book mr-2 text-center" style="width: 20px"></i>
+                                    AutoBids Guide
+                                </a>
+                                <a class="dropdown-item" href="/logout">
+                                    <i class="fas fa-sign-out-alt mr-2 text-center" style="width: 20px"></i>
+                                    Logout
+                                </a>
+                            </div>
+                        </li>
+                    </ul>
+                </nav>
+
+                <div class="container-fluid d-flex flex-wrap"></div>
+                <div class="container-fluid d-flex flex-wrap mb-2">
+                    <div class="admin-alert w-100" data-code="onboarding-welcome">
+                        <div class="alert mb-2 alert-success alert-dismissible fade show p-0"
+                            style=" padding-top: 5px; margin-bottom: 5px; background: rgb(53,27,49);
+background: linear-gradient(90deg, rgba(53,27,49,1) 0%, rgba(102,29,58,1) 100%); color: white !important; color: white !important; " role="alert">
+                            <div class="px-3" style="padding-top: 10px; margin-bottom: 5px;">
+                                <h4 class="alert-heading mt-3">Welcome to AutoBids!</h4>
+                                <p style="font-size: 17px;" class="mb-2">
+                                    Please note your AutoBids username is:
+                                    <strong>
+                                        <%= user.username %>
+                                    </strong>
+                                </p>
+                                <p class="mb-2">
+                                    <a href="#"
+                                        style="color: inherit;font-weight: 700;text-decoration: underline;">Click here
+                                        to watch complete demo video of AutoBids</a>
+                                </p>
+                                <p class="mb-0">Your 5-days free trial subscription has started.</p>
+                                <p class="mb-0">
+                                    <strong>Click show more to view contact details.</strong>
+                                </p>
+                            </div>
+                            <div class="mb-0 px-3 pb-3 " style="background: none; /* background: -moz-linear-gradient(180deg, #d2f4e8 0%, #0f6848 100%); */
+                            /* background: -webkit-linear-gradient(180deg, #d2f4e8 0%, #0f6848 100%); */
+                            /* background: linear-gradient(180deg, #d2f4e8 0%, #0f6848 100%); */ ">
+                                <div>
+                                    <p class="mb-3">Use this free trial period to explore all the features of AutoBids.
+                                    </p>
+                                    <p class="mb-0">Follow these three important steps for getting started and making
+                                        the most of your AutoBids experience:</p>
+                                    <p class="mb-0 ml-3">
+                                        <strong>
+                                            <a href="/skills" style="color: inherit">1- Select
+                                                project skills</a>
+                                        </strong>
+                                        to stay notified with newly posted projects on which you love to work.
+                                    </p>
+                                    <p class="mb-0 ml-3">
+                                        <strong>
+                                            <a href="/temp" style="color: inherit">2-
+                                                Write awesome proposals</a>
+                                        </strong>
+                                        to take full advantage of quick and auto bidding using AutoBids.
+                                    </p>
+                                    <p class="mb-3 ml-3">
+                                        <strong>
+                                            <a href="/search" style="color: inherit">3- Start
+                                                Autobidding</a>
+                                        </strong>
+                                        and let AutoBids place bid on newly posted projects within seconds.
+                                    </p>
+                                    <p class="mb-0">For contact detail verification, queries or payment information,
+                                        please contact us at:</p>
+                                    <p class="mb-0 ml-3">
+                                        • Whatsapp:
+                                        <strong>
+                                            <a href="#" style="color: inherit; display: inline-block;"> <%= adminPhone %> </a>
+
+                                        </strong>
+                                    </p>
+                                    <p class="mb-0 ml-3">
+                                        • Email:
+                                        <strong>
+                                            <a href=""
+                                                style="color: inherit; display: inline-block;"></a>
+                                            
+                                            <a href="mailto:<%= adminEmail %>"
+                                                style="color: inherit; display: inline-block;">
+                                                <%= adminEmail %>
+                                            </a>
+                                        </strong>
+                                    </p>
+                                    <p class="mb-0 ml-3">
+                                        • Skype:
+                                        <strong>
+                                            <%= adminSkype %>
+                                        </strong>
+                                    </p>
+                                    <p class="mb-3 ml-3">
+                                        • Telegram:
+                                        <strong>
+                                            <a style="color: inherit; display: inline-block;">
+                                                <%= adminTelegram %>
+                                            </a>
+                                        </strong>
+                                    </p>
+                                    <p class="mb-2">
+                                        <a href="/" style="color: inherit">Click here to
+                                            read guide to help understand AutoBids</a>
+                                    </p>
+                                    <p class="mb-0">Happy bidding</p>
+                                </div>
+                                <span
+                                    style="position: absolute; width: 100%; bottom: 1rem; justify-content: center; display: flex;">
+
+                                </span>
+                            </div>
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">×</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="container-fluid">
+                    <div class="p-3 mb-3 text-white rounded shadow-sm" style="  background: rgb(53,27,49);
+background: linear-gradient(90deg, rgba(53,27,49,1) 0%, rgba(102,29,58,1) 100%); color: white !important;">
+                        <p class="mb-1">You currently have a limit of 50 bids. But don't worry, by verifying your
+                            contact details, you can unlock 500 bids! 🚀</p>
+                        <p class="mb-1">It's simple, just contact us at any of these:</p>
+                        <div class="row">
+                            <div class="col-xl-4 col-lg-6 col-md-8 order-md-0 order-lg-0">
+                                <p class="mb-0 ml-3" style="font-size: 14px">
+                                    • Whatsapp:
+                                    <a href="" style="color: inherit">
+                                        <%= adminPhone %>
+                                    </a>
+                                    ,
+                                    <a href="" style="color: inherit"></a>
+                                </p>
+                            </div>
+                            <div class="col-xl-4 col-lg-6 col-md-8 order-md-2 order-lg-0">
+                                <p class="mb-0 ml-3" style="font-size: 14px">
+                                    • Email:
+                                    <a href="mailto:<%= adminEmail %>" style="color: inherit">
+                                        <%= adminEmail %>
+                                    </a>
+                                </p>
+                            </div>
+                            <div class="col-xl-2 col-lg-6 col-md-4 order-md-1 order-lg-0">
+                                <p class="mb-0 ml-3" style="font-size: 14px">• Telegram: <a href=""
+                                        style="color: inherit">
+                                        <%= adminTelegram %>
+                                    </a></p>
+                            </div>
+                            <div class="col-xl-2 col-lg-6 col-md-4 order-md-1 order-lg-0">
+                                <p class="mb-0 ml-3" style="font-size: 14px">• Skype: <a href=""
+                                        style="color: inherit">
+                                        <%= adminSkype %>
+                                    </a></p>
+                            </div>
+                        </div>
+                        <p class="mt-1 mb-0">Bonus: Get FREE AI bids when you contact us! 🎉</p>
+                    </div>
+                </div>
+
+                <div class="container-fluid">
+
+                    <a href="javascript:;" class="setting-collpase-btn">Show Settings Menu</a>
+                    <div class="setting-container mb-4">
+                        <div class="setting-sidebar">
+                            <h5 class="h5">Settings</h5>
+                            <div class="setting-item-container">
+                                <a class="setting-item " href="/skills">
+                                    <i class="fas fa-heart"></i>
+                                    <span>Skills</span>
+                                </a>
+                                <a class="setting-item " href="/skills-sets">
+                                    <i class="fas fa-layer-group"></i>
+                                    <span>Skill Sets</span>
+                                </a>
+                                <a class="setting-item " href="/countries">
+                                    <i class="fas fa-flag"></i>
+                                    <span>Countries</span>
+                                </a>
+                                <a class="setting-item " href="/client-stats">
+                                    <i class="fas fa-filter"></i>
+                                    <span>Client Stats</span>
+                                </a>
+                                <a class="setting-item " href="/budget">
+                                    <i class="fas fa-dollar-sign"></i>
+                                    <span>Project Budget</span>
+                                </a>
+                                <a class="setting-item " href="/bidPrice">
+                                    <i class="fas fa-gavel"></i>
+                                    <span>Bid Price</span>
+                                </a>
+                                <a class="setting-item " href="/period">
+                                    <i class="far fa-clock"></i>
+                                    <span>Project Period</span>
+                                </a>
+                                <a class="setting-item " href="/timeSetting">
+                                    <i class="far fa-clock"></i>
+                                    <span>Time Setting</span>
+                                </a>
+                                <a class="setting-item " href="/tcats">
+                                    <i class="fas fa-sitemap"></i>
+                                    <span>Template Categories</span>
+                                </a>
+                                <a class="setting-item active" href="/temp">
+                                    <i class="fas fa-list-ul"></i>
+                                    <span>Templates</span>
+                                </a>
+                                <a class="setting-item " href="/passChange">
+                                    <i class="fas fa-user-lock"></i>
+                                    <span>Change Password</span>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="setting-content">
+                            <div class="card shadow mb-4">
+                                <div class="card-header py-3 d-flex align-items-center">
+                                    <h5 class="h5 m-0 text-primary">Templates</h5>
+                                    <h6 class="m-0 font-weight-bold text-primary align-self-center ml-auto">
+                                        <a href="/templateAdd">Add Template</a>
+                                    </h6>
+                                </div>
+                                <div class="card-body">
+                                    <div class="table-responsive">
+                                        <table class="table table-bordered" id="table-list" width="100%"
+                                            cellspacing="0">
+                                            <thead>
+                                                <tr>
+                                                    <th style="min-width: 95px">Category</th>
+                                                    <th style="min-width: 95px">Content</th>
+                                                    <th style="min-width: 80px">Skills</th>
+                                                    <th style="min-width: 100px;max-width: 100px;width: 100px">Actions
+                                                    </th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <% templates.forEach(template=> { %>
+                                                    <tr>
+                                                        <td>
+                                                            <%= template?.category?.name %>
+                                                        </td> <!-- Display category name instead of category object -->
+                                                        <td>
+                                                            <a href="<%= template._id %>" style="color: #2b2d3c;">
+                                                                <%= template.content %>
+                                                            </a>
+                                                        </td>
+                                                        <td style="min-width: 80px !important;">
+                                                            <% template.skills.forEach(skill=> { %>
+                                                                <span class="badge badge-success mx-1">
+                                                                    <%= skill %>
+                                                                </span>
+                                                                <% }); %>
+                                                        </td>
+                                                        <td style="width: 100px">
+                                                            <div class="dropdown mb-0">
+                                                                <button class="btn btn-primary btn-sm dropdown-toggle"
+                                                                    type="button" id="dropdownMenuButton"
+                                                                    data-toggle="dropdown" aria-haspopup="true"
+                                                                    aria-expanded="false">
+                                                                    Actions
+                                                                </button>
+                                                                <div class="dropdown-menu animated--fade-in edit-template"
+                                                                    aria-labelledby="dropdownMenuButton">
+                                                                    <a class="dropdown-item"
+                                                                        href="/edit/template/<%= template._id %>">Edit</a>
+                                                                    <button
+                                                                        class="dropdown-item text-danger delete-template"
+                                                                        data-template-id="<%= template._id %>">Delete</button>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    <% }); %>
+                                            </tbody>
+                                        </table>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="card shadow" id="section-stats">
+                                <div class="card-header py-3 d-flex align-items-center">
+                                    <h5 class="h5 m-0 text-primary">Skill Stats</h5>
+                                </div>
+                                <div class="card-body pb-2">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="template-skill-box">
+                                                <p class="text-primary font-weight-bold mb-0">API</p>
+                                                <div>
+                                                    <b>9</b>
+                                                    templates in
+                                                    <b>5</b>
+                                                    categories
+                                                </div>
+                                                <button type="button"
+                                                    class="generate-bid-template-skill btn btn-primary btn-sm mt-2 mb-2"
+                                                    data-id="1087" data-name="API" data-toggle="modal"
+                                                    data-target="#bidModal">Generate Bid</button>
+                                            </div>
+                                            <div class="template-skill-box">
+                                                <p class="text-primary font-weight-bold mb-0">Database Development</p>
+                                                <div>
+                                                    <b>9</b>
+                                                    templates in
+                                                    <b>5</b>
+                                                    categories
+                                                </div>
+                                                <button type="button"
+                                                    class="generate-bid-template-skill btn btn-primary btn-sm mt-2 mb-2"
+                                                    data-id="709" data-name="Database Development" data-toggle="modal"
+                                                    data-target="#bidModal">Generate Bid</button>
+                                            </div>
+                                            <div class="template-skill-box">
+                                                <p class="text-primary font-weight-bold mb-0">Express JS</p>
+                                                <div>
+                                                    <b>9</b>
+                                                    templates in
+                                                    <b>5</b>
+                                                    categories
+                                                </div>
+                                                <button type="button"
+                                                    class="generate-bid-template-skill btn btn-primary btn-sm mt-2 mb-2"
+                                                    data-id="598" data-name="Express JS" data-toggle="modal"
+                                                    data-target="#bidModal">Generate Bid</button>
+                                            </div>
+                                            <div class="template-skill-box">
+                                                <p class="text-primary font-weight-bold mb-0">Flutter</p>
+                                                <div>
+                                                    <b>9</b>
+                                                    templates in
+                                                    <b>5</b>
+                                                    categories
+                                                </div>
+                                                <button type="button"
+                                                    class="generate-bid-template-skill btn btn-primary btn-sm mt-2 mb-2"
+                                                    data-id="1315" data-name="Flutter" data-toggle="modal"
+                                                    data-target="#bidModal">Generate Bid</button>
+                                            </div>
+                                            <div class="template-skill-box">
+                                                <p class="text-primary font-weight-bold mb-0">Full Stack Development</p>
+                                                <div>
+                                                    <b>9</b>
+                                                    templates in
+                                                    <b>5</b>
+                                                    categories
+                                                </div>
+                                                <button type="button"
+                                                    class="generate-bid-template-skill btn btn-primary btn-sm mt-2 mb-2"
+                                                    data-id="1088" data-name="Full Stack Development"
+                                                    data-toggle="modal" data-target="#bidModal">Generate Bid</button>
+                                            </div>
+                                            <div class="template-skill-box">
+                                                <p class="text-primary font-weight-bold mb-0">HTML</p>
+                                                <div>
+                                                    <b>9</b>
+                                                    templates in
+                                                    <b>5</b>
+                                                    categories
+                                                </div>
+                                                <button type="button"
+                                                    class="generate-bid-template-skill btn btn-primary btn-sm mt-2 mb-2"
+                                                    data-id="335" data-name="HTML" data-toggle="modal"
+                                                    data-target="#bidModal">Generate Bid</button>
+                                            </div>
+                                            <div class="template-skill-box">
+                                                <p class="text-primary font-weight-bold mb-0">HTML5</p>
+                                                <div>
+                                                    <b>9</b>
+                                                    templates in
+                                                    <b>5</b>
+                                                    categories
+                                                </div>
+                                                <button type="button"
+                                                    class="generate-bid-template-skill btn btn-primary btn-sm mt-2 mb-2"
+                                                    data-id="323" data-name="HTML5" data-toggle="modal"
+                                                    data-target="#bidModal">Generate Bid</button>
+                                            </div>
+                                            <div class="template-skill-box">
+                                                <p class="text-primary font-weight-bold mb-0">JavaScript</p>
+                                                <div>
+                                                    <b>9</b>
+                                                    templates in
+                                                    <b>5</b>
+                                                    categories
+                                                </div>
+                                                <button type="button"
+                                                    class="generate-bid-template-skill btn btn-primary btn-sm mt-2 mb-2"
+                                                    data-id="9" data-name="JavaScript" data-toggle="modal"
+                                                    data-target="#bidModal">Generate Bid</button>
+                                            </div>
+                                            <div class="template-skill-box">
+                                                <p class="text-primary font-weight-bold mb-0">Laravel</p>
+                                                <div>
+                                                    <b>9</b>
+                                                    templates in
+                                                    <b>5</b>
+                                                    categories
+                                                </div>
+                                                <button type="button"
+                                                    class="generate-bid-template-skill btn btn-primary btn-sm mt-2 mb-2"
+                                                    data-id="669" data-name="Laravel" data-toggle="modal"
+                                                    data-target="#bidModal">Generate Bid</button>
+                                            </div>
+                                            <div class="template-skill-box">
+                                                <p class="text-primary font-weight-bold mb-0">MongoDB</p>
+                                                <div>
+                                                    <b>9</b>
+                                                    templates in
+                                                    <b>5</b>
+                                                    categories
+                                                </div>
+                                                <button type="button"
+                                                    class="generate-bid-template-skill btn btn-primary btn-sm mt-2 mb-2"
+                                                    data-id="1254" data-name="MongoDB" data-toggle="modal"
+                                                    data-target="#bidModal">Generate Bid</button>
+                                            </div>
+                                            <div class="template-skill-box">
+                                                <p class="text-primary font-weight-bold mb-0">MySQL</p>
+                                                <div>
+                                                    <b>9</b>
+                                                    templates in
+                                                    <b>5</b>
+                                                    categories
+                                                </div>
+                                                <button type="button"
+                                                    class="generate-bid-template-skill btn btn-primary btn-sm mt-2 mb-2"
+                                                    data-id="305" data-name="MySQL" data-toggle="modal"
+                                                    data-target="#bidModal">Generate Bid</button>
+                                            </div>
+                                            <div class="template-skill-box">
+                                                <p class="text-primary font-weight-bold mb-0">Next.js</p>
+                                                <div>
+                                                    <b>9</b>
+                                                    templates in
+                                                    <b>5</b>
+                                                    categories
+                                                </div>
+                                                <button type="button"
+                                                    class="generate-bid-template-skill btn btn-primary btn-sm mt-2 mb-2"
+                                                    data-id="2376" data-name="Next.js" data-toggle="modal"
+                                                    data-target="#bidModal">Generate Bid</button>
+                                            </div>
+                                            <div class="template-skill-box">
+                                                <p class="text-primary font-weight-bold mb-0">Node.js</p>
+                                                <div>
+                                                    <b>9</b>
+                                                    templates in
+                                                    <b>5</b>
+                                                    categories
+                                                </div>
+                                                <button type="button"
+                                                    class="generate-bid-template-skill btn btn-primary btn-sm mt-2 mb-2"
+                                                    data-id="500" data-name="Node.js" data-toggle="modal"
+                                                    data-target="#bidModal">Generate Bid</button>
+                                            </div>
+                                            <div class="template-skill-box">
+                                                <p class="text-primary font-weight-bold mb-0">PHP</p>
+                                                <div>
+                                                    <b>9</b>
+                                                    templates in
+                                                    <b>5</b>
+                                                    categories
+                                                </div>
+                                                <button type="button"
+                                                    class="generate-bid-template-skill btn btn-primary btn-sm mt-2 mb-2"
+                                                    data-id="3" data-name="PHP" data-toggle="modal"
+                                                    data-target="#bidModal">Generate Bid</button>
+                                            </div>
+                                            <div class="template-skill-box">
+                                                <p class="text-primary font-weight-bold mb-0">React Native</p>
+                                                <div>
+                                                    <b>9</b>
+                                                    templates in
+                                                    <b>5</b>
+                                                    categories
+                                                </div>
+                                                <button type="button"
+                                                    class="generate-bid-template-skill btn btn-primary btn-sm mt-2 mb-2"
+                                                    data-id="1314" data-name="React Native" data-toggle="modal"
+                                                    data-target="#bidModal">Generate Bid</button>
+                                            </div>
+                                            <div class="template-skill-box">
+                                                <p class="text-primary font-weight-bold mb-0">React.js</p>
+                                                <div>
+                                                    <b>9</b>
+                                                    templates in
+                                                    <b>5</b>
+                                                    categories
+                                                </div>
+                                                <button type="button"
+                                                    class="generate-bid-template-skill btn btn-primary btn-sm mt-2 mb-2"
+                                                    data-id="759" data-name="React.js" data-toggle="modal"
+                                                    data-target="#bidModal">Generate Bid</button>
+                                            </div>
+                                            <div class="template-skill-box">
+                                                <p class="text-primary font-weight-bold mb-0">Software Development</p>
+                                                <div>
+                                                    <b>9</b>
+                                                    templates in
+                                                    <b>5</b>
+                                                    categories
+                                                </div>
+                                                <button type="button"
+                                                    class="generate-bid-template-skill btn btn-primary btn-sm mt-2 mb-2"
+                                                    data-id="613" data-name="Software Development" data-toggle="modal"
+                                                    data-target="#bidModal">Generate Bid</button>
+                                            </div>
+                                            <div class="template-skill-box">
+                                                <p class="text-primary font-weight-bold mb-0">Typescript</p>
+                                                <div>
+                                                    <b>9</b>
+                                                    templates in
+                                                    <b>5</b>
+                                                    categories
+                                                </div>
+                                                <button type="button"
+                                                    class="generate-bid-template-skill btn btn-primary btn-sm mt-2 mb-2"
+                                                    data-id="979" data-name="Typescript" data-toggle="modal"
+                                                    data-target="#bidModal">Generate Bid</button>
+                                            </div>
+                                            <div class="template-skill-box">
+                                                <p class="text-primary font-weight-bold mb-0">Web Development</p>
+                                                <div>
+                                                    <b>9</b>
+                                                    templates in
+                                                    <b>5</b>
+                                                    categories
+                                                </div>
+                                                <button type="button"
+                                                    class="generate-bid-template-skill btn btn-primary btn-sm mt-2 mb-2"
+                                                    data-id="1031" data-name="Web Development" data-toggle="modal"
+                                                    data-target="#bidModal">Generate Bid</button>
+                                            </div>
+                                            <div class="template-skill-box">
+                                                <p class="text-primary font-weight-bold mb-0">Website Development</p>
+                                                <div>
+                                                    <b>9</b>
+                                                    templates in
+                                                    <b>5</b>
+                                                    categories
+                                                </div>
+                                                <button type="button"
+                                                    class="generate-bid-template-skill btn btn-primary btn-sm mt-2 mb-2"
+                                                    data-id="2839" data-name="Website Development" data-toggle="modal"
+                                                    data-target="#bidModal">Generate Bid</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="bidModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header"
+                    style="position: relative;display: flex;justify-content: space-between;align-items: center;padding: 10px 1rem;">
+                    <h5 class="modal-title text-primary" style="line-height: 1;">Loading...</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"
+                        style="cursor: pointer;z-index: 1;margin: 0;height: 30px;width: 30px;display: flex;padding: 0;justify-content: center;align-items: center;">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body text-dark"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/assets/jquery.min.js"></script>
+    <script src="/assets/bootstrap.bundle.min.js"></script>
+    <script src="/assets/jquery.easing.min.js"></script>
+    <script src="/assets/sb-admin-2.min.js?v=6"></script>
+    <script src="/assets/jquery.dataTables.min.js"></script>
+    <script src="/assets/dataTables.bootstrap4.min.js"></script>
+    <script src="/assets/dataTables.responsive.min.js"></script>
+    <script src="/assets/dataTables.fixedHeader.min.js"></script>
+
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var datatable = $('#table-list').DataTable({
+                "responsive": true,
+                "autoWidth": false,
+                "order": [[0, "asc"]],
+                "columnDefs": [
+                    {
+                        "orderable": false,
+                        "searchable": false,
+                        "targets": [2, 3]
+                    },
+                ],
+                "pageLength": 30,
+                "lengthMenu": [[10, 20, 30, 50, -1], [10, 20, 30, 50, "All"]],
+            });
+            new $.fn.dataTable.FixedHeader(datatable);
+
+            $(document).on('click', '.generate-bid-template-skill', function () {
+                var btn = $(this);
+                $.ajax({
+                    type: "post",
+                    url: "get_random_bid_template_skill.php",
+                    data: 'skill_id=' + btn.data('id') + '&name=' + btn.data('name'),
+                    beforeSend: function () {
+                        btn.html('<i class="fa fa-spinner fa-spin"></i>');
+                        btn.prop('disabled', 'disabled');
+                        $('#bidModal .modal-body').html('Loading...');
+                        $('#bidModal .modal-title').html(btn.data('name'));
+                        $('#bidModal').modal('show')
+                    }
+                })
+                    .done(function (Response) {
+                        console.log(Response);
+                        if (Response != 'ERROR') {
+                            $('#bidModal .modal-body').html(Response['button'] + Response['categories'] + Response['bid']);
+                        }
+                        else {
+                            toastr["error"]('Error generating random bid');
+                        }
+                    })
+                    .fail(function () {
+
+                    })
+                    .always(function () {
+                        btn.html('Generate Bid');
+                        btn.prop('disabled', '');
+                    });
+            });
+        });
+        document.addEventListener('click', function(event) {
+  if (event.target.classList.contains('delete-template')) {
+    const templateId = event.target.dataset.templateId;
+    deleteTemplate(event, templateId); // Pass event object as a parameter
+  }
+});
+
+function deleteTemplate(event, templateId) {
+  // Send AJAX request to server to delete template
+  fetch(`/delete/template/${templateId}`, {
+    method: 'DELETE',
+  })
+    .then(response => {
+      if (response.ok) {
+        // Template deleted successfully, remove row from table
+        const row = event.target.closest('tr');
+        row.remove();
+
+        // Show alert and reload after 2 seconds
+        alert('Template deleted successfully!');
+        setTimeout(() => {
+          window.location.reload();
+        }, 2000);
+      } else {
+        // Handle error
+        console.error('Failed to delete template');
+      }
+    })
+    .catch(error => {
+      console.error('Error:', error);
+    });
+}
+        document.addEventListener('click', function (event) {
+            if (event.target.classList.contains('edit-template')) {
+                const templateId = event.target.dataset.templateId;
+                editTemplate(event, templateId); // Pass event object as a parameter
+            }
+        });
+
+        document.addEventListener('click', function (event) {
+            if (event.target.classList.contains('edit-template')) {
+                const templateId = event.target.dataset.templateId;
+                editTemplate(templateId);
+            }
+        });
+
+        // Function to send AJAX request to delete template
+        function editTemplate(templateId) {
+
+            const row = document.querySelector(`tr[data-template-id="${templateId}"]`);
+
+            // Extracting data from the row
+            const content = row.querySelector('td:nth-child(2) a').textContent.trim(); // Get content
+            const skills = Array.from(row.querySelectorAll('td:nth-child(3) .badge')).map(skill => skill.textContent.trim()); // Get skills
+            const categoryName = row.querySelector('td:nth-child(1)').textContent.trim(); // Get category name
+            const data = {
+                content: content,
+                skills: skills,
+                categoryName: categoryName
+            };
+            // Send AJAX request to server to delete template
+            fetch(`/edit/template/${templateId}`, {
+                method: 'post', // Assuming you're updating the template via POST method
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            })
+                .then(response => {
+                    if (response.ok) {
+                        // Template deleted successfully, remove row from table
+                        const row = event.target.closest('tr');
+                        row.remove();
+                    } else {
+                        // Handle error
+                        console.error('Failed to delete template');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
+        }
+    </script>
+</body>
+
+</html>

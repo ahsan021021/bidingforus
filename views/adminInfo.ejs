@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<title>Change Info | AutoBids</title>
+
+	<meta property="og:url" content="https://AutoBids.co/" />
+	<meta property="og:type" content="website" />
+	<meta property="og:title" content="AutoBids" />
+	<meta property="og:description" content="AutoBids is a tool which gives you upper hand to other freelancers" />
+	<meta property="og:image" content="https://cdn.bidman.co/images/logo.png" />
+
+	<!-- <link rel="icon" href="https://cdn.bidman.co/images/favicon/favicon-32x32.png" sizes="32x32">
+	<link rel="icon" href="https://cdn.bidman.co/images/favicon/favicon-57x57.png" sizes="57x57">
+	<link rel="icon" href="https://cdn.bidman.co/images/favicon/favicon-76x76.png" sizes="76x76">
+	<link rel="icon" href="https://cdn.bidman.co/images/favicon/favicon-96x96.png" sizes="96x96">
+	<link rel="icon" href="https://cdn.bidman.co/images/favicon/favicon-128x128.png" sizes="128x128">
+	<link rel="icon" href="https://cdn.bidman.co/images/favicon/favicon-192x192.png" sizes="192x192">
+	<link rel="icon" href="https://cdn.bidman.co/images/favicon/favicon-228x228.png" sizes="228x228">
+	<link rel="shortcut icon" sizes="196x196" href="https://cdn.bidman.co/images/favicon/favicon-196x196.png"> -->
+	<link rel="apple-touch-icon" href="https://cdn.bidman.co/images/favicon/favicon-120x120.png" sizes="120x120">
+	<link rel="apple-touch-icon" href="https://cdn.bidman.co/images/favicon/favicon-152x152.png" sizes="152x152">
+	<link rel="apple-touch-icon" href="https://cdn.bidman.co/images/favicon/favicon-180x180.png" sizes="180x180">
+	<meta name="theme-color" content="#012B46">
+	<meta name="msapplication-TileColor" content="#FFFFFF">
+	<meta name="msapplication-TileImage" content="https://cdn.bidman.co/images/favicon/favicon-144x144.png">
+
+	<link href="https://cdn.bidman.co/app_assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet"
+		type="text/css">
+	<link
+		href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+		rel="stylesheet">
+	<link href="https://cdn.bidman.co/app_assets/css/sb-admin-2.min.css?v=11" rel="stylesheet">
+	<link href="https://cdn.bidman.co/app_assets/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+	<style type="text/css">
+		label {
+			font-size: 14px;
+			font-weight: 600;
+			margin-bottom: 3px;
+			color: #555;
+		}
+	</style>
+</head>
+
+<body id="page-top" class="sidebar-toggled">
+	<div id="wrapper">
+
+		<div id="content-wrapper" class="d-flex flex-column">
+			<div id="content">
+
+
+				<nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+					<a class="navbar-brand position-relative" href="/admin/dashboard">
+						<h2>AUTOBIDS</h2>
+					</a>
+				</nav>
+
+
+			<div class="setting-content">
+    <form method="POST" action="/admin/changeInfo">
+        <div class="card shadow">
+            <div class="card-header py-3 d-flex align-items-center">
+                <h5 class="h5 m-0 text-primary">Change Info</h5>
+            </div>
+            <div class="card-body">
+                <div class="form-row">
+                    <div class="form-group col-sm-6 col-lg-4">
+                        <label for="input-email">Email</label>
+                        <input type="email" value="<%= userData[0]?.email ? userData[0].email : '' %>" class="form-control" id="input-email" name="email" required autofocus>
+                    </div>
+                    <div class="form-group col-sm-6 col-lg-4">
+                        <label for="input-skype">Skype</label>
+                        <input type="text" class="form-control" value="<%= userData[0]?.skype ? userData[0].skype : '' %>" id="input-skype" name="skype" required autofocus>
+                    </div>
+                    <div class="form-group col-sm-6 col-lg-4">
+                        <label for="input-telegram">Telegram</label>
+                        <input type="text" class="form-control" id="input-telegram" value="<%= userData[0]?.telegram ? userData[0].telegram : '' %>" name="telegram" required autofocus>
+                    </div>
+                    <div class="form-group col-sm-6 col-lg-4">
+                        <label for="input-phone">Phone No:</label>
+                        <input type="text" class="form-control" id="input-phone"  value="<%= userData[0]?.phone ? userData[0].phone : '' %>" name="phone" required>
+                    </div>
+                   
+            <div class="card-footer">
+                <button type="submit" name="submit" class="btn btn-success ml-auto d-flex">Submit</button>
+            </div>
+        </div>
+    </form>
+</div>
+			</div>
+		</div>
+	</div>
+	</div>
+	</div>
+
+	<script src="/assets/jquery.min.js"></script>
+	<script src="/assets/bootstrap.bundle.min.js"></script>
+	<script src="/assets/jquery.easing.min.js"></script>
+	<script src="/assets/sb-admin-2.min.js?v=6"></script>
+	<script src="/assets/jquery.dataTables.min.js"></script>
+	<script src="/assets/dataTables.bootstrap4.min.js"></script>
+	<script>
+		// Check if the success parameter is present in the URL
+		const urlParams = new URLSearchParams(window.location.search);
+		const success = urlParams.get('success');
+
+		if (success === 'true') {
+			// Display an alert message indicating that the password has been changed successfully
+			alert('Info changed successfully!');
+		}
+	</script>
+</body>
+
+</html>

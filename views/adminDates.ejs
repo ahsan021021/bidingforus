@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>Edit Dates| AutoBids</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link href="https://cdn.bidman.co/app_assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.bidman.co/app_assets/css/sb-admin-2.min.css?v=11" rel="stylesheet">
+    <link href="https://cdn.bidman.co/app_assets/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap-datepicker@1.9.0/dist/js/bootstrap-datepicker.min.js"></script>
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-datepicker@1.9.0/dist/css/bootstrap-datepicker.min.css">
+    <style type="text/css">
+        label {
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 3px;
+            color: #555;
+        }
+
+        /* Style for the button */
+        button {
+            background-color: #4CAF50;
+            /* Green */
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            transition-duration: 0.4s;
+            cursor: pointer;
+            border-radius: 8px;
+        }
+
+        /* Hover effect */
+        button:hover {
+            background-color: #45a049;
+            /* Darker green */
+        }
+
+        /* Style for the table cell containing the button */
+        td {
+            text-align: center;
+            padding: 10px;
+        }
+    </style>
+</head>
+
+<body id="page-top" class="sidebar-toggled">
+    <div id="wrapper">
+        <div id="content-wrapper" class="d-flex flex-column">
+            <div id="content">
+                <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+                    <a class="navbar-brand position-relative" href="/admin/dashboard">
+                        <h2>AUTOBIDS</h2>
+                    </a>
+                    <ul class="navbar-nav">
+						<li class="nav-item">
+							<a class="nav-link text-dark" style="font-size: 15px;" href="/admin/blockUsers"
+								role="button">
+								<span class="d-none d-sm-block">&nbsp;</span>
+								<span style="font-weight: bold; font-size: 16px; color: #18557F;">BlockUsers</span>
+							</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link text-dark" style="font-size: 15px;" href="/admin/bidsAllowed"
+								role="button">
+								<span class="d-none d-sm-block">&nbsp;</span>
+								<span style="font-weight: bold; font-size: 16px; color: #18557F;">BidsAllowed</span>
+							</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link text-dark" style="font-size: 15px;" href="/admin/editSubscription"
+								role="button">
+								<span class="d-none d-sm-block">&nbsp;</span>
+								<span style="font-weight: bold; font-size: 16px; color: #18557F;">Subscription Type</span>
+							</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link text-dark" style="font-size: 15px;" href="/admin/editDates"
+								role="button">
+								<span class="d-none d-sm-block">&nbsp;</span>
+								<span style="font-weight: bold; font-size: 16px; color: #18557F;">Subscription Date</span>
+							</a>
+						</li>
+					</ul>
+                </nav>
+
+                <div class="container-fluid">
+                    <div class="card shadow">
+                        <div class="card-header py-3 d-flex align-items-center">
+                            <h5 class="h5 m-0 text-primary">Bids Allowed</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Username</th>
+                                            <th>Age</th>
+                                            <th>Gender</th>
+                                            <th>Email</th>
+                                            <th>Phone</th>
+                                            <th>Subscription Start Date</th>
+                                            <th>Subscription End Date</th>
+                                            <th>Subscription New-End-Date</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <% users.forEach((user, index)=> { %>
+                                            <tr>
+                                                <td>
+                                                    <%= index + 1 %>
+                                                </td>
+                                                <td>
+                                                    <%= user.username %>
+                                                </td>
+                                                <td>
+                                                    <%= user.age %>
+                                                </td>
+                                                <td>
+                                                    <%= user.gender %>
+                                                </td>
+                                                <td>
+                                                    <%= user.email %>
+                                                </td>
+                                                <td>
+                                                    <%= user.phone %>
+                                                </td>
+                                                <td>
+                                                    <%= formatDate(user.subscriptionStartDate) %>
+                                                </td>
+                                                <td>
+                                                    <%= formatDate(user.subscriptionEndDate) %>
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-control datepicker"
+                                                        data-user-id="<%= user._id %>" data-date-type="endDate"
+                                                        value="<%= formatDate(user.subscriptionEndDate) %>">
+                                                </td>
+                                            </tr>
+                                            <% }); %>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="loadingSpinner" style="display: none; text-align: center; margin-top: 20px;">
+                    <div class="spinner-border text-primary" role="status">
+                        <span class="sr-only">Loading...</span>
+                    </div>
+                    <span>Loading...</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Your JavaScript code -->
+    <script src="/assets/bootstrap.bundle.min.js"></script>
+    <script src="/assets/jquery.easing.min.js"></script>
+    <script src="/assets/sb-admin-2.min.js?v=6"></script>
+    <script src="/assets/jquery.dataTables.min.js"></script>
+    <script src="/assets/dataTables.bootstrap4.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            // Initialize DataTable with options
+            var dataTable = $('#dataTable').DataTable({
+                "paging": true, // Enable pagination
+                "searching": true, // Enable search
+                "ordering": true, // Enable sorting
+                "info": true // Show information
+            });
+
+            // Show loading spinner when search is initiated
+            $('#dataTable_filter input').on('keyup', function () {
+                $('#loadingSpinner').show();
+            });
+
+            // Hide loading spinner when search is completed
+            $('#dataTable').on('draw.dt', function () {
+                $('#loadingSpinner').hide();
+            });
+
+            // Initialize datepicker for elements with the 'datepicker' class
+            $('.datepicker').datepicker({
+                format: 'M dd yyyy', // Date format
+                autoclose: true // Close the datepicker when a date is selected
+            });
+
+            // Handle change event when a date is selected
+            $('.datepicker').on('changeDate', function (e) {
+                const userId = $(this).data('user-id');
+                const dateType = $(this).data('date-type');
+                const selectedDate = e.format();
+
+                // Send an AJAX request to update the user's end date
+                $.ajax({
+                    method: 'POST',
+                    url: '/admin/editDates', // Specify the URL for updating the end date
+                    data: {
+                        userId: userId,
+                        dateType: dateType,
+                        selectedDate: selectedDate
+                    },
+                    success: function (response) {
+                        // Handle success response
+                        console.log(response);
+                        // Show toastr success message
+                        toastr.success('Subscription type updated successfully!');
+                        // Reload page after 2 seconds
+                        setTimeout(function () {
+                            location.reload();
+                        }, 2000);
+                    },
+                    error: function (xhr, status, error) {
+                        // Handle error response if needed
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>
